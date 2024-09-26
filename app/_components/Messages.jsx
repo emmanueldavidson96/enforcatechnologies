@@ -95,7 +95,6 @@ const Messages = () => {
                   <VStack align="stretch" h="full" bg="white" borderRadius="md" p={4}>
                     <Text fontWeight="bold">{selectedChat.user}</Text>
                     <Divider />
-                    {/* Add message bubbles here */}
                   </VStack>
               ) : (
                   <Flex justify="center" align="center" h="full">
