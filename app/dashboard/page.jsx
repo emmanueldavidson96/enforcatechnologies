@@ -54,7 +54,7 @@ export default function Dashboard() {
             {/* Home */}
             <div
               onClick={() => set_activeTab("home")} 
-              className={`flex gap-4 items-center w-[80%] text-white hover:bg-white ${activeTab === "home" ? "bg-white text-[#4153B2]": ""} rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "home" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <CiHome color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
@@ -65,7 +65,7 @@ export default function Dashboard() {
             {/* Talent Management */}
             <div 
               onClick={() => set_activeTab("talentmanagement")}
-              className={`flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2] ${activeTab === "talentmanagement" ? "bg-white text-[#4153B2]": ""}`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "talentmanagement" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <GiGraduateCap color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
@@ -77,7 +77,7 @@ export default function Dashboard() {
             {/* Job */}
             <div
               onClick={() => set_activeTab("job")} 
-              className={`${activeTab === "job" ? "bg-white text-[#4153B2]": ""} flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "job" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <PiSuitcaseSimple color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
@@ -88,7 +88,7 @@ export default function Dashboard() {
             {/* Message */}
             <div
               onClick={() => set_activeTab("message")} 
-              className={`${activeTab === "message" ? "bg-white text-[#4153B2]": ""} flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "message" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <MdOutlineEmail color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
@@ -99,7 +99,7 @@ export default function Dashboard() {
             {/* Calender */}
             <div
               onClick={() => set_activeTab("calender")} 
-              className={`${activeTab === "calender" ? "bg-white text-[#4153B2]": ""} flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "calender" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <SlCalender color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
@@ -111,7 +111,7 @@ export default function Dashboard() {
             {/* Subscriptions */}
             <div 
               onClick={() => set_activeTab("subscriptions")}
-              className={`${activeTab === "subscriptions" ? "bg-white text-[#4153B2]": ""} flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "subscriptions" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <FaRegMoneyBill1 color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
@@ -122,7 +122,7 @@ export default function Dashboard() {
             {/* Settings */}
             <div 
               onClick={() => set_activeTab("settings")}
-              className={`${activeTab === "settings" ? "bg-white text-[#4153B2]": ""} flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
+              className={`flex gap-4 items-center w-[80%]   ${activeTab === "settings" ? "text-[#4153B2] bg-white": "text-white hover:text-[#4153B2] hover:bg-white"} rounded-lg p-3 cursor-pointer `}
             >
               <IoSettingsOutline color="inherit" size={25} className='hover:text-[#4153B2]'/>
               {
