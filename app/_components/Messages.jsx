@@ -357,7 +357,6 @@ const Messages = () => {
                         </Box>
 
                         {/* Right content area */}
-                        {/* Right content area */}
                         <Flex flex={1} flexDirection="column" bg="white" width="calc(100% - 312px)">
                             {selectedChat ? (
                                 <>
