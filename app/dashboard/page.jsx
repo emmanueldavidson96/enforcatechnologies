@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { IoChevronBackCircleOutline } from "react-icons/io5";
 import { CiHome } from "react-icons/ci";
 import { GiGraduateCap } from "react-icons/gi";
@@ -16,6 +16,7 @@ import Messages from '../_components/Messages';
 import Calender from '../_components/Calender';
 import Subscriptions from '../_components/Subscriptions';
 import Settings from '../_components/Settings';
+
 
 export default function Dashboard() {
   const [activeTab, set_activeTab] = useState("home");

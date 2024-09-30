@@ -12,30 +12,26 @@ import {
     Text,
     Avatar,
     Button,
-    Badge,
     extendTheme,
     InputGroup,
     InputRightElement,
     InputLeftElement,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    PopoverBody,
-    PopoverArrow,
 } from '@chakra-ui/react';
 import {
     SearchIcon,
     BellIcon,
     ChevronDownIcon,
     ChevronRightIcon,
-    AttachmentIcon,
     CheckIcon,
     CalendarIcon,
-    PhoneIcon,
+    StarIcon,
 } from '@chakra-ui/icons';
 import { FiSend, FiSmile, FiMoreVertical, FiPlusCircle } from 'react-icons/fi';
 import { BsPinAngle } from 'react-icons/bs';
 import { MdKeyboardVoice } from 'react-icons/md';
+
+
+
 
 // Custom theme for Messages component
 const messagesTheme = extendTheme({
@@ -99,7 +95,13 @@ const Messages = () => {
     const [notifications, setNotifications] = useState([
         {id: 1, type: 'message', user: 'Alice', content: 'New message from Alice', timestamp: '2 min ago'},
         {id: 2, type: 'mention', user: 'Bob', content: 'Bob mentioned you in Design Team', timestamp: '15 min ago'},
-        {id: 3, type: 'request', user: 'Charlie', content: 'Charlie Applied for fronted dev...', timestamp: '1 hour ago'},
+        {
+            id: 3,
+            type: 'request',
+            user: 'Charlie',
+            content: 'Charlie Applied for fronted dev...',
+            timestamp: '1 hour ago'
+        },
     ]);
     const [isTyping, setIsTyping] = useState(false);
     const chatBoxRef = useRef(null);
@@ -243,7 +245,7 @@ const Messages = () => {
 
     return (
         <ChakraProvider theme={messagesTheme} resetCSS={false}>
-            <Box className="messages-component" h="100vh">
+            <Box className="messages-component" h="100vh" w="100%"> {/* Set width to 100% */}
                 <Flex h="full" flexDirection="column">
                     {/* Top Navigation */}
                     <Flex justify="space-between" align="center" p={4} borderBottom="1px" borderColor="gray.200">
@@ -255,48 +257,43 @@ const Messages = () => {
                         </InputGroup>
                         <HStack spacing={4}>
                             <Text fontSize="sm">{new Date().toLocaleString()}</Text>
-                            <Popover
-                                isOpen={showNotifications}
-                                onClose={() => setShowNotifications(false)}
-                                placement="bottom-end"
-                            >
-                                <PopoverTrigger>
-                                    <IconButton
-                                        icon={<BellIcon/>}
-                                        aria-label="Notifications"
-                                        onClick={() => setShowNotifications(!showNotifications)}
-                                    />
-                                </PopoverTrigger>
-                                <PopoverContent width="350px">
-                                    <PopoverArrow/>
-                                    <PopoverBody>
-                                        <Text fontWeight="bold" mb={2}>
-                                            Notifications
-                                        </Text>
-                                        <VStack align="stretch" spacing={2}>
-                                            {notifications.map((notification) => (
-                                                <Box key={notification.id} p={2} bg="gray.50" borderRadius="md">
-                                                    <HStack>
-                                                        <Avatar name={notification.user} size="sm"/>
-                                                        <Box>
-                                                            <Text fontSize="sm" fontWeight="bold">
-                                                                {notification.user}
-                                                            </Text>
-                                                            <Text fontSize="xs" color="gray.500">
-                                                                {notification.timestamp}
-                                                            </Text>
-                                                        </Box>
-                                                    </HStack>
-                                                    <Text fontSize="sm" mt={1}>
-                                                        {notification.content}
-                                                    </Text>
-                                                </Box>
-                                            ))}
-                                        </VStack>
-                                    </PopoverBody>
-                                </PopoverContent>
-                            </Popover>
+                            <IconButton
+                                icon={<BellIcon/>}
+                                aria-label="Notifications"
+                                onClick={() => setShowNotifications(!showNotifications)}
+                            />
                         </HStack>
+                    </Flex>
+
+                    {/* Messages Header */}
+                    <Flex p={4} borderBottom="1px" borderColor="gray.200">
+                        <Text fontWeight="bold" fontSize="xl">Messages</Text>
+                    </Flex>
+
+                    {/* Integrated search bar with filter and status */}
+                    <Flex p={4} bg="blue.50" borderBottom="1px" borderColor="gray.200">
+                        <InputGroup size="md">
+                            <InputLeftElement pointerEvents="none">
+                                <SearchIcon color="gray.300" />
+                            </InputLeftElement>
+                            <Input
+                                placeholder="Search by name, group, chat..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                bg="white"
+                                pr="14rem"
+                            />
+                            <InputRightElement width="14rem">
+                                <HStack spacing={2}>
+                                    <Button size="sm" leftIcon={<ChevronDownIcon />} variant="ghost">
+                                        Filter
+                                    </Button>
+                                    <Button size="sm" leftIcon={<ChevronDownIcon />} variant="ghost">
+                                        All Status
+                                    </Button>
+                                </HStack>
+                            </InputRightElement>
+                        </InputGroup>
                     </Flex>
 
                     {/* Main Content */}
@@ -304,29 +301,6 @@ const Messages = () => {
                         {/* Left sidebar */}
                         <Box w="300px" bg="gray.50" borderRight="1px" borderColor="gray.200" overflowY="auto">
                             <VStack align="stretch" spacing={0} p={4}>
-                                <Text fontWeight="bold" fontSize="xl" mb={4}>
-                                    Messages
-                                </Text>
-                                <InputGroup size="md" mb={4}>
-                                    <InputLeftElement pointerEvents="none">
-                                        <SearchIcon color="gray.300" />
-                                    </InputLeftElement>
-                                    <Input
-                                        placeholder="Search by name, group, chat..."
-                                        value={searchQuery}
-                                        onChange={(e) => setSearchQuery(e.target.value)}
-                                    />
-                                </InputGroup>
-                                <HStack mb={4} justify="space-between">
-                                    <Text fontSize="sm">Filter:</Text>
-                                    <Button
-                                        rightIcon={<ChevronDownIcon/>}
-                                        size="sm"
-                                        variant="outline"
-                                    >
-                                        All Status
-                                    </Button>
-                                </HStack>
                                 <CategoryBox
                                     title="Group Chats"
                                     chats={groupChats}
@@ -352,7 +326,7 @@ const Messages = () => {
                         </Box>
 
                         {/* Right content area */}
-                        <Flex flex={1} flexDirection="column" bg="white" width="calc(100% - 300px)">
+                        <Flex flex={1} flexDirection="column" bg="white">
                             {selectedChat ? (
                                 <>
                                     <Flex p={4} borderBottom="1px" borderColor="gray.200" justifyContent="space-between" alignItems="center">
@@ -360,16 +334,13 @@ const Messages = () => {
                                             <Avatar name={selectedChat.user} size="sm" />
                                             <Box>
                                                 <Text fontWeight="bold" fontSize="md">{selectedChat.user}</Text>
-                                                <HStack>
-                                                    <Badge colorScheme="green" fontSize="xs">ACTIVE</Badge>
-                                                    <Text fontSize="xs" color="gray.500">Last seen recently</Text>
-                                                </HStack>
+                                                <Text fontSize="xs" color="green.500">Available</Text>
                                             </Box>
                                         </HStack>
                                         <HStack spacing={2}>
                                             <IconButton
-                                                icon={<PhoneIcon />}
-                                                aria-label="Call"
+                                                icon={<StarIcon />}
+                                                aria-label="Favorite"
                                                 variant="ghost"
                                                 size="sm"
                                             />
@@ -399,67 +370,46 @@ const Messages = () => {
                                                 {messages.map((message) => (
                                                     <Flex
                                                         key={message.id}
-                                                        justifyContent={message.sender === 'me' ? 'flex-end' : 'flex-start'}
+                                                        flexDirection="column"
+                                                        alignItems={message.sender === 'me' ? 'flex-end' : 'flex-start'}
                                                     >
+                                                        {message.sender !== 'me' && (
+                                                            <Text fontSize="sm" color="blue.500" mb={1}>
+                                                                {selectedChat.user}
+                                                            </Text>
+                                                        )}
                                                         <Box
                                                             maxW="70%"
-                                                            bg={message.sender === 'me' ? 'blue.500' : 'gray.100'}
-                                                            color={message.sender === 'me' ? 'white' : 'black'}
+                                                            bg={message.sender === 'me' ? 'transparent' : 'gray.100'}
                                                             borderRadius="lg"
                                                             px={3}
                                                             py={2}
                                                         >
                                                             <Text fontSize="sm">{message.text}</Text>
-                                                            <Flex justifyContent="flex-end" alignItems="center" mt={1}>
-                                                                <Text fontSize="xs" color={message.sender === 'me' ? 'whiteAlpha.800' : 'gray.500'}>
-                                                                    {formatTime(message.timestamp)}
-                                                                </Text>
-                                                                {message.sender === 'me' && (
-                                                                    <HStack spacing={0} ml={1}>
-                                                                        <CheckIcon w={3} h={3} color="green.300" />
-                                                                        <CheckIcon w={3} h={3} color="green.300" ml={-1} />
-                                                                    </HStack>
-                                                                )}
-                                                            </Flex>
                                                         </Box>
+                                                        <Text fontSize="xs" color="gray.500" mt={1}>
+                                                            {formatTime(message.timestamp)}
+                                                            {message.sender === 'me' && (
+                                                                <CheckIcon w={3} h={3} color="green.500" ml={1} />
+                                                            )}
+                                                        </Text>
                                                     </Flex>
                                                 ))}
                                             </VStack>
                                         </Box>
-                                        {isTyping && (
-                                            <Text fontSize="xs" color="gray.500" px={4} py={2}>
-                                                {selectedChat.user} is typing...
-                                            </Text>
-                                        )}
                                     </Flex>
                                     <Box p={4} borderTop="1px" borderColor="gray.200">
                                         <InputGroup size="md">
-                                            <InputLeftElement width="4.5rem">
-                                                <IconButton
-                                                    icon={<FiPlusCircle />}
-                                                    aria-label="Add attachment"
-                                                    variant="ghost"
-                                                    size="sm"
-                                                />
-                                                <IconButton
-                                                    icon={<MdKeyboardVoice />}
-                                                    aria-label="Voice message"
-                                                    variant="ghost"
-                                                    size="sm"
-                                                />
-                                            </InputLeftElement>
                                             <Input
-                                                pl="4.5rem"
-                                                pr="4.5rem"
-                                                placeholder="Type a message..."
+                                                placeholder="Type your message here..."
                                                 value={inputMessage}
                                                 onChange={handleInputChange}
                                                 onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                                             />
                                             <InputRightElement width="4.5rem">
                                                 <IconButton
-                                                    icon={<AttachmentIcon />}
-                                                    aria-label="Attach file"
+                                                    icon={<FiPlusCircle />}
+                                                    aria-label="Add attachment"
                                                     variant="ghost"
                                                     size="sm"
                                                 />
