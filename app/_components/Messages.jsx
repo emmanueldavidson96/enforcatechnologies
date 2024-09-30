@@ -37,7 +37,6 @@ import { FiSend, FiSmile, FiMoreVertical, FiPlusCircle } from 'react-icons/fi';
 import { BsPinAngle } from 'react-icons/bs';
 import { MdKeyboardVoice } from 'react-icons/md';
 
-
 // Custom theme for Messages component
 const messagesTheme = extendTheme({
     styles: {
@@ -100,13 +99,7 @@ const Messages = () => {
     const [notifications, setNotifications] = useState([
         {id: 1, type: 'message', user: 'Alice', content: 'New message from Alice', timestamp: '2 min ago'},
         {id: 2, type: 'mention', user: 'Bob', content: 'Bob mentioned you in Design Team', timestamp: '15 min ago'},
-        {
-            id: 3,
-            type: 'request',
-            user: 'Charlie',
-            content: 'Charlie Applied for fronted dev...',
-            timestamp: '1 hour ago'
-        },
+        {id: 3, type: 'request', user: 'Charlie', content: 'Charlie Applied for fronted dev...', timestamp: '1 hour ago'},
     ]);
     const [isTyping, setIsTyping] = useState(false);
     const chatBoxRef = useRef(null);
@@ -128,7 +121,6 @@ const Messages = () => {
             [category]: !prev[category],
         }));
     };
-
 
     const handleInputChange = (e) => {
         setInputMessage(e.target.value);
@@ -254,80 +246,83 @@ const Messages = () => {
             <Box className="messages-component" h="100vh">
                 <Flex h="full" flexDirection="column">
                     {/* Top Navigation */}
-                    <Flex justify="flex-end" p={4} borderBottom="1px" borderColor="gray.200">
-                        <Popover
-                            isOpen={showNotifications}
-                            onClose={() => setShowNotifications(false)}
-                            placement="bottom-end"
-                        >
-                            <PopoverTrigger>
-                                <IconButton
-                                    icon={<BellIcon/>}
-                                    aria-label="Notifications"
-                                    onClick={() => setShowNotifications(!showNotifications)}
-                                />
-                            </PopoverTrigger>
-                            <PopoverContent width="350px">
-                                <PopoverArrow/>
-                                <PopoverBody>
-                                    <Text fontWeight="bold" mb={2}>
-                                        Notifications
-                                    </Text>
-                                    <VStack align="stretch" spacing={2}>
-                                        {notifications.map((notification) => (
-                                            <Box key={notification.id} p={2} bg="gray.50" borderRadius="md">
-                                                <HStack>
-                                                    <Avatar name={notification.user} size="sm"/>
-                                                    <Box>
-                                                        <Text fontSize="sm" fontWeight="bold">
-                                                            {notification.user}
-                                                        </Text>
-                                                        <Text fontSize="xs" color="gray.500">
-                                                            {notification.timestamp}
-                                                        </Text>
-                                                    </Box>
-                                                </HStack>
-                                                <Text fontSize="sm" mt={1}>
-                                                    {notification.content}
-                                                </Text>
-                                            </Box>
-                                        ))}
-                                    </VStack>
-                                </PopoverBody>
-                            </PopoverContent>
-                        </Popover>
+                    <Flex justify="space-between" align="center" p={4} borderBottom="1px" borderColor="gray.200">
+                        <InputGroup maxW="400px">
+                            <InputLeftElement pointerEvents="none">
+                                <SearchIcon color="gray.300" />
+                            </InputLeftElement>
+                            <Input placeholder="Search for users and job listings" />
+                        </InputGroup>
+                        <HStack spacing={4}>
+                            <Text fontSize="sm">{new Date().toLocaleString()}</Text>
+                            <Popover
+                                isOpen={showNotifications}
+                                onClose={() => setShowNotifications(false)}
+                                placement="bottom-end"
+                            >
+                                <PopoverTrigger>
+                                    <IconButton
+                                        icon={<BellIcon/>}
+                                        aria-label="Notifications"
+                                        onClick={() => setShowNotifications(!showNotifications)}
+                                    />
+                                </PopoverTrigger>
+                                <PopoverContent width="350px">
+                                    <PopoverArrow/>
+                                    <PopoverBody>
+                                        <Text fontWeight="bold" mb={2}>
+                                            Notifications
+                                        </Text>
+                                        <VStack align="stretch" spacing={2}>
+                                            {notifications.map((notification) => (
+                                                <Box key={notification.id} p={2} bg="gray.50" borderRadius="md">
+                                                    <HStack>
+                                                        <Avatar name={notification.user} size="sm"/>
+                                                        <Box>
+                                                            <Text fontSize="sm" fontWeight="bold">
+                                                                {notification.user}
+                                                            </Text>
+                                                            <Text fontSize="xs" color="gray.500">
+                                                                {notification.timestamp}
+                                                            </Text>
+                                                        </Box>
+                                                    </HStack>
+                                                    <Text fontSize="sm" mt={1}>
+                                                        {notification.content}
+                                                    </Text>
+                                                </Box>
+                                            ))}
+                                        </VStack>
+                                    </PopoverBody>
+                                </PopoverContent>
+                            </Popover>
+                        </HStack>
                     </Flex>
 
                     {/* Main Content */}
                     <Flex flex={1} overflow="hidden">
                         {/* Left sidebar */}
-                        <Box w="312px" bg="gray.50" borderRight="1px" borderColor="gray.200" overflowY="auto">
+                        <Box w="300px" bg="gray.50" borderRight="1px" borderColor="gray.200" overflowY="auto">
                             <VStack align="stretch" spacing={0} p={4}>
                                 <Text fontWeight="bold" fontSize="xl" mb={4}>
                                     Messages
                                 </Text>
-                                <HStack mb={4}>
+                                <InputGroup size="md" mb={4}>
+                                    <InputLeftElement pointerEvents="none">
+                                        <SearchIcon color="gray.300" />
+                                    </InputLeftElement>
                                     <Input
                                         placeholder="Search by name, group, chat..."
-                                        size="sm"
-                                        borderRadius="full"
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
                                     />
-                                    <IconButton
-                                        size="sm"
-                                        icon={<SearchIcon/>}
-                                        borderRadius="full"
-                                        aria-label="Search"
-                                    />
-                                </HStack>
+                                </InputGroup>
                                 <HStack mb={4} justify="space-between">
                                     <Text fontSize="sm">Filter:</Text>
                                     <Button
                                         rightIcon={<ChevronDownIcon/>}
                                         size="sm"
                                         variant="outline"
-                                        borderRadius="full"
                                     >
                                         All Status
                                     </Button>
@@ -357,8 +352,7 @@ const Messages = () => {
                         </Box>
 
                         {/* Right content area */}
-                        {/* Right content area */}
-                        <Flex flex={1} flexDirection="column" bg="white" width="calc(100% - 312px)">
+                        <Flex flex={1} flexDirection="column" bg="white" width="calc(100% - 300px)">
                             {selectedChat ? (
                                 <>
                                     <Flex p={4} borderBottom="1px" borderColor="gray.200" justifyContent="space-between" alignItems="center">
@@ -367,7 +361,7 @@ const Messages = () => {
                                             <Box>
                                                 <Text fontWeight="bold" fontSize="md">{selectedChat.user}</Text>
                                                 <HStack>
-                                                    <Badge colorScheme="green" fontSize="xs">ACTIVE</Badge>
+                                                    <Badge colorScheme="green" fontSize="xs">Active</Badge>
                                                     <Text fontSize="xs" color="gray.500">Last seen recently</Text>
                                                 </HStack>
                                             </Box>
@@ -438,7 +432,7 @@ const Messages = () => {
                                             </Text>
                                         )}
                                     </Flex>
-                                    <Box borderTop="1px" borderColor="gray.200" p={3}>
+                                    <Box p={4} borderTop="1px" borderColor="gray.200">
                                         <InputGroup size="md">
                                             <InputLeftElement width="4.5rem">
                                                 <IconButton
@@ -498,4 +492,5 @@ const Messages = () => {
         </ChakraProvider>
     );
 };
+
 export default Messages;
