@@ -352,11 +352,7 @@ const Messages = () => {
                         </Box>
 
                         {/* Right content area */}
-<<<<<<< HEAD
                         <Flex flex={1} flexDirection="column" bg="white" width="calc(100% - 300px)">
-=======
-                        <Flex flex={1} flexDirection="column" bg="white" width="calc(100% - 312px)">
->>>>>>> 0441c838e6bcaa4abf40661b00da463b4b8720cb
                             {selectedChat ? (
                                 <>
                                     <Flex p={4} borderBottom="1px" borderColor="gray.200" justifyContent="space-between" alignItems="center">
@@ -365,7 +361,7 @@ const Messages = () => {
                                             <Box>
                                                 <Text fontWeight="bold" fontSize="md">{selectedChat.user}</Text>
                                                 <HStack>
-                                                    <Badge colorScheme="green" fontSize="xs">Active</Badge>
+                                                    <Badge colorScheme="green" fontSize="xs">ACTIVE</Badge>
                                                     <Text fontSize="xs" color="gray.500">Last seen recently</Text>
                                                 </HStack>
                                             </Box>
@@ -497,8 +493,4 @@ const Messages = () => {
     );
 };
 
-
 export default Messages;
-
-
-
