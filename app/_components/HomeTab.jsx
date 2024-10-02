@@ -204,8 +204,8 @@ export default function HomeTab() {
             <div className='flex flex-col gap-4 w-[30%] bg-white rounded-xl p-6'>
               <h2 className='text-xl font-semibold text-[#111D63]'>Recent Actvities</h2>
               <div className='w-full flex items-center gap-4 bg-[#F1F4F8] rounded-xl p-4'>
-                <div className='h-[60px] w-[60px] rounded-full'>
-                  <HiOutlineBriefcase color='white' size={15}/>
+                <div className='h-[40px] w-[40px] rounded-full bg-[#111D63] flex items-center justify-center'>
+                  <HiOutlineBriefcase color='white' size={20}/>
                 </div>
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-lg font-semibold text-[#111D63]'>20 Jobs uploaded</h2>
@@ -214,8 +214,8 @@ export default function HomeTab() {
               </div>
 
               <div className='w-full flex items-center gap-4 bg-[#F1F4F8] rounded-xl p-4'>
-                <div className='h-[60px] w-[60px] rounded-full'>
-                  <HiOutlineBriefcase color='white' size={15}/>
+                <div className='h-[40px] w-[40px] rounded-full bg-[#111D63] flex items-center justify-center'>
+                  <HiOutlineBriefcase color='white' size={20}/>
                 </div>
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-lg font-semibold text-[#111D63]'>20 Jobs uploaded</h2>
@@ -224,8 +224,8 @@ export default function HomeTab() {
               </div>
 
               <div className='w-full flex items-center gap-4 bg-[#F1F4F8] rounded-xl p-4'>
-                <div className='h-[60px] w-[60px] rounded-full'>
-                  <HiOutlineBriefcase color='white' size={15}/>
+                <div className='h-[40px] w-[40px] rounded-full bg-[#111D63] flex items-center justify-center'>
+                  <HiOutlineBriefcase color='white' size={20}/>
                 </div>
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-lg font-semibold text-[#111D63]'>20 Jobs uploaded</h2>
@@ -234,8 +234,8 @@ export default function HomeTab() {
               </div>
 
               <div className='w-full flex items-center gap-4 bg-[#F1F4F8] rounded-xl p-4'>
-                <div className='h-[60px] w-[60px] rounded-full'>
-                  <HiOutlineBriefcase color='white' size={15}/>
+                <div className='h-[40px] w-[40px] rounded-full bg-[#111D63] flex items-center justify-center'>
+                  <HiOutlineBriefcase color='white' size={20}/>
                 </div>
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-lg font-semibold text-[#111D63]'>20 Jobs uploaded</h2>
@@ -244,8 +244,8 @@ export default function HomeTab() {
               </div>
 
               <div className='w-full flex items-center gap-4 bg-[#F1F4F8] rounded-xl p-4'>
-                <div className='h-[60px] w-[60px] rounded-full'>
-                  <HiOutlineBriefcase color='white' size={15}/>
+                <div className='h-[40px] w-[40px] rounded-full bg-[#111D63] flex items-center justify-center'>
+                  <HiOutlineBriefcase color='white' size={20}/>
                 </div>
                 <div className='flex flex-col gap-2'>
                   <h2 className='text-lg font-semibold text-[#111D63]'>20 Jobs uploaded</h2>

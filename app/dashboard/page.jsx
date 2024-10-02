@@ -17,6 +17,7 @@ import Calender from '../_components/Calender';
 import Subscriptions from '../_components/Subscriptions';
 import Settings from '../_components/Settings';
 
+
 export default function Dashboard() {
   const [activeTab, set_activeTab] = useState('home');
   const [open, set_open] = useState(true);
