@@ -11,7 +11,7 @@ import download from '../_assets/download.png';
 import briefCase from '../_assets/briefcase.png';
 import employee from '../_assets/employee-man-alt.png';
 import { FaCirclePlus } from 'react-icons/fa6';
-import Link from 'next/link';
+import { SlOptions } from 'react-icons/sl';
 import apple from '../_assets/apple.png';
 import google from '../_assets/google.png';
 import linkedin from '../_assets/linkedin.png';
@@ -20,7 +20,6 @@ import graph from '../_assets/graph.png';
 import firstRectangle from '../_assets/first Rectangle.png';
 import secondRectangle from '../_assets/second Rectangle.png';
 import thirdRectangle from '../_assets/third Rectangle.png';
-
 
 export default function TalentManagement() {
   return (
@@ -290,31 +289,85 @@ export default function TalentManagement() {
           </div>
           <div className='flex flex-col gap-3 w-[35%] mt-2'>
             <div className='flex flex-col justify-center items-center bg-white rounded-xl gap-3 p-4'>
-              <p className='text-[#111D63] text-lg font-semibold'>Job readiness index</p>
-              <Image src={graph} alt='graph'/>
+              <p className='text-[#111D63] text-lg font-semibold'>
+                Job readiness index
+              </p>
+              <Image src={graph} alt='graph' />
               <div className='flex items-center gap-4'>
                 <div>
-                  <Image src={firstRectangle}/>
+                  <Image src={firstRectangle} />
                   <p className='text-xs'>Profile strength</p>
                 </div>
                 <div>
-                  <Image src={secondRectangle}/>
+                  <Image src={secondRectangle} />
                   <p className='text-xs'>Skill match</p>
                 </div>
                 <div>
-                  <Image src={thirdRectangle}/>
+                  <Image src={thirdRectangle} />
                   <p className='text-xs'>Linkedin profile</p>
                 </div>
               </div>
             </div>
             <div className='flex flex-col gap-3 bg-white rounded-xl p-7'>
-              <h2>Activity history</h2>
-              <p className='py-2'>Applied to Azda foods</p>
+              <h2 className='text-[#111D63] drop-shadow-lg text-xl'>
+                Activity history
+              </h2>
+              <p className='py-2 text-base text-[#475466] font-extrabold'>
+                Applied to Azda foods
+              </p>
               <hr />
-              <p className='py-2'>Revamped curriculum vitae</p>
+              <p className='py-2 text-base text-[#475466] font-extrabold'>
+                Revamped curriculum vitae
+              </p>
               <hr />
-              <p className='py-2'>Conducted Intervies prep</p>
+              <p className='py-2 text-base text-[#475466] font-extrabold'>
+                Conducted Intervies prep
+              </p>
               <hr />
+            </div>
+          </div>
+        </div>
+        <div className='flex flex-col gap-6 justify-center bg-white rounded-lg mt-4 p-6'>
+          <h2 className='text-xl text-[#111D63] font-bold'>Job ready talents</h2>
+          <div className='flex items-center justify-between bg-[#FCFCFD] py-3'>
+            <p className='text-base text-[#667085]'>Talent</p>
+            <p className='ps-48 text-base text-[#667085]'>Creation date</p>
+            <p></p>
+          </div>
+          <div className='flex flex-col gap-5'>
+            <div className='flex justify-between items-center'>
+              <div className='flex gap-2'>
+                <Image
+                  src={profileImage}
+                  alt='Profile Image of User'
+                  className='w-[50px] h-[50px] rounded-full '
+                />
+                <div>
+                  <h2 className='text-xl font-semibold text-[#111D63]'>
+                    John Doe
+                  </h2>
+                  <p className='text-[#98A2B2]'>Johndoeemail@yahoo.com</p>
+                </div>
+              </div>
+              <p className='text-[#98A2B2]'>Aug 25, 2024</p>
+              <SlOptions />
+            </div>
+            <div className='flex justify-between items-center'>
+              <div className='flex gap-2'>
+                <Image
+                  src={profileImage}
+                  alt='Profile Image of User'
+                  className='w-[50px] h-[50px] rounded-full '
+                />
+                <div>
+                  <h2 className='text-xl font-semibold text-[#111D63]'>
+                    John Doe
+                  </h2>
+                  <p className='text-[#98A2B2]'>Johndoeemail@yahoo.com</p>
+                </div>
+              </div>
+              <p className='text-[#98A2B2]'>Aug 25, 2024</p>
+              <SlOptions />
             </div>
           </div>
         </div>
