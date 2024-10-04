@@ -10,7 +10,7 @@ import edit from '../_assets/edit.png';
 import download from '../_assets/download.png';
 import briefCase from '../_assets/briefcase.png';
 import employee from '../_assets/employee-man-alt.png';
-import { FaCirclePlus } from 'react-icons/fa6';
+import { TbCirclePlus } from 'react-icons/tb';
 import { SlOptions } from 'react-icons/sl';
 import apple from '../_assets/apple.png';
 import google from '../_assets/google.png';
@@ -72,15 +72,23 @@ export default function TalentManagement() {
                     Update CV
                   </button>
                 </div>
-                <div className='flex items-center bg-white rounded gap-2 p-3'>
-                  <Image className='cursor-pointer' src={edit} alt='edit' />
-                  <Image className='cursor-pointer' src={share} alt='share' />
-                  <Image className='cursor-pointer' src={print} alt='print' />
-                  <Image
-                    className='cursor-pointer'
-                    src={download}
-                    alt='download'
-                  />
+                <div className='btn-group flex items-center bg-white rounded gap-2 p-3'>
+                  <button>
+                    <Image className='cursor-pointer btn-1 w-6' src={edit} alt='edit' />
+                  </button>
+                  <button>
+                    <Image className='cursor-pointer btn-1 w-6' src={share} alt='share' />
+                  </button>
+                  <button>
+                    <Image className='cursor-pointer btn-1 w-6' src={print} alt='print' />
+                  </button>
+                  <button>
+                    <Image
+                      className='cursor-pointer pe-1 w-6'
+                      src={download}
+                      alt='download'
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -166,7 +174,7 @@ export default function TalentManagement() {
                   Job Ready Talents
                 </p>
                 <div className='flex items-center gap-2'>
-                  <FaCirclePlus color='#111D63' size={20} />
+                  <TbCirclePlus color='#111D63' size={20} />
                   <p className='text-lg font-medium italic'>Add Job Talent</p>
                 </div>
               </div>
@@ -328,7 +336,9 @@ export default function TalentManagement() {
           </div>
         </div>
         <div className='flex flex-col gap-6 justify-center bg-white rounded-lg mt-4 p-6'>
-          <h2 className='text-xl text-[#111D63] font-bold'>Job ready talents</h2>
+          <h2 className='text-xl text-[#111D63] font-bold'>
+            Job ready talents
+          </h2>
           <div className='flex items-center justify-between bg-[#FCFCFD] py-3'>
             <p className='text-base text-[#667085]'>Talent</p>
             <p className='ps-48 text-base text-[#667085]'>Creation date</p>
