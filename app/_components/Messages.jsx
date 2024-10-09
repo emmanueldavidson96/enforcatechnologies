@@ -13,7 +13,6 @@ import {SearchIcon, BellIcon, ChevronDownIcon, ChevronRightIcon, CheckIcon,} fro
 import { FiSend, FiSmile, FiMoreVertical, FiClock, FiPaperclip, FiHash, FiStar, FiMessageSquare, FiBookmark, FiShare2 } from 'react-icons/fi';
 import { BsPinAngle } from 'react-icons/bs';
 import { MdKeyboardVoice } from 'react-icons/md';
-
 // Custom theme for Messages component
 const messagesTheme = extendTheme({
     styles: {
@@ -204,9 +203,10 @@ const Messages = () => {
         <ChakraProvider theme={messagesTheme} resetCSS={false}>
             <Box className="messages-component" h="100vh" w="100%">
                 <Flex h="full" flexDirection="column">
-                    {/* New top search bar */}
-                    <Flex p={4} borderBottom="1px" borderColor="gray.200" alignItems="center">
-                        <InputGroup size="md" maxWidth="800px" mx="auto">
+
+                    {/* Modified Top Navigation */}
+                    <Flex justify="space-between" align="center" p={4} borderBottom="1px" borderColor="gray.200">
+                        <InputGroup size="md" flex={1} mr={4}>
                             <InputLeftElement pointerEvents="none">
                                 <SearchIcon color="gray.400" />
                             </InputLeftElement>
@@ -216,12 +216,6 @@ const Messages = () => {
                                 onChange={(e) => setTopSearchQuery(e.target.value)}
                             />
                         </InputGroup>
-                        <Text ml="auto" fontSize="sm">{new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</Text>
-                    </Flex>
-
-                    {/* Top Navigation */}
-                    <Flex justify="space-between" align="center" p={4} borderBottom="1px" borderColor="gray.200">
-                        <Text fontWeight="bold" fontSize="xl">Messages</Text>
                         <HStack spacing={4}>
                             <Text fontSize="sm">{new Date().toLocaleString()}</Text>
                             <Popover
