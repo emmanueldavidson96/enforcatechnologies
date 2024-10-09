@@ -1,30 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import {
-    ChakraProvider,
-    Box,
-    Flex,
-    VStack,
-    HStack,
-    Input,
-    IconButton,
-    Text,
-    Avatar,
-    Button,
-    extendTheme,
-    InputGroup,
-    InputRightElement,
-    InputLeftElement,
-    Icon,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    PopoverHeader,
+import {ChakraProvider, Box, Flex, VStack, HStack, Input, IconButton, Text, Avatar, Button, extendTheme, InputGroup, InputRightElement, InputLeftElement, Icon, Menu, MenuButton, MenuList, MenuItem, Popover, PopoverTrigger, PopoverContent, PopoverHeader,
     PopoverBody,
     PopoverArrow,
     Link,
@@ -32,18 +9,10 @@ import {
     BreadcrumbItem,
     BreadcrumbLink,
 } from '@chakra-ui/react';
-import {
-    SearchIcon,
-    BellIcon,
-    ChevronDownIcon,
-    ChevronRightIcon,
-    CheckIcon,
-} from '@chakra-ui/icons';
+import {SearchIcon, BellIcon, ChevronDownIcon, ChevronRightIcon, CheckIcon,} from '@chakra-ui/icons';
 import { FiSend, FiSmile, FiMoreVertical, FiClock, FiPaperclip, FiHash, FiStar, FiMessageSquare, FiBookmark, FiShare2 } from 'react-icons/fi';
 import { BsPinAngle } from 'react-icons/bs';
 import { MdKeyboardVoice } from 'react-icons/md';
-
-
 
 // Custom theme for Messages component
 const messagesTheme = extendTheme({
@@ -69,7 +38,7 @@ const messagesTheme = extendTheme({
 });
 
 const Messages = () => {
-    const [notifications , setNotifications]= useState([])
+    const [notifications, setNotifications] = useState([]);
     const [showNotifications, setShowNotifications] = useState(false);
     const [selectedChat, setSelectedChat] = useState(null);
     const [openCategories, setOpenCategories] = useState({
@@ -78,22 +47,44 @@ const Messages = () => {
         all: true,
     });
     const [inputMessage, setInputMessage] = useState('');
-    const [messages, setMessages] = useState([
-        { id: 1, text: "Good Morning ma'am", sender: 'Chukuemeka', timestamp: '10:07 AM' },
-        { id: 2, text: "Good Morning. I'll need those reports by 3 PM, please.", sender: 'me', timestamp: '10:07 AM' },
-        { id: 3, text: "Sure, I'll get them to you on time", sender: 'Chukuemeka', timestamp: '10:07 AM' },
-        { id: 4, text: "Also I hope you had a chance to review the project updates I sent last Friday.", sender: 'me', timestamp: '10:07 AM' },
-        { id: 5, text: "Yes, I've seen the project updates. I'll have them ready before the general meeting today.", sender: 'Chukuemeka', timestamp: '10:07 AM' },
-        { id: 6, text: "Can we schedule a meeting for tomorrow?", sender: 'me', timestamp: '10:07 AM' },
-    ]);
+    const [messages, setMessages] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [filter, setFilter] = useState('All');
     const [status, setStatus] = useState('All Status');
     const chatBoxRef = useRef(null);
 
+    const [groupChats, setGroupChats] = useState([]);
+    const [pinnedChats, setPinnedChats] = useState([]);
+    const [allChats, setAllChats] = useState([]);
+    const [topSearchQuery, setTopSearchQuery] = useState('');
+
+    useEffect(() => {
+        //  API endpoints
+        fetchNotifications();
+        fetchGroupChats();
+        fetchPinnedChats();
+        fetchAllChats();
+    }, []);
+
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    const fetchNotifications = async () => {
+
+    };
+
+    const fetchGroupChats = async () => {
+
+    };
+
+    const fetchPinnedChats = async () => {
+
+    };
+
+    const fetchAllChats = async () => {
+
+    };
 
     const scrollToBottom = () => {
         if (chatBoxRef.current) {
@@ -112,7 +103,7 @@ const Messages = () => {
         setInputMessage(e.target.value);
     };
 
-    const handleSendMessage = () => {
+    const handleSendMessage = async () => {
         if (inputMessage.trim()) {
             const newMessage = {
                 id: messages.length + 1,
@@ -123,43 +114,23 @@ const Messages = () => {
             setMessages([...messages, newMessage]);
             setInputMessage('');
 
-            // Simulate receiving a response after 2 seconds
-            setTimeout(() => {
-                const response = {
-                    id: messages.length + 2,
-                    text: "I've received your message. I'll get back to you soon.",
-                    sender: selectedChat.user,
-                    timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-                };
-                setMessages(prevMessages => [...prevMessages, response]);
-            }, 2000);
+            // Send message to API
+            // await sendMessageToAPI(newMessage);
+
+            // Simulate receiving a response ( actual API call)
+            // setTimeout(() => {
+            //     const response = await fetchResponseFromAPI();
+            //     setMessages(prevMessages => [...prevMessages, response]);
+            // }, 2000);
         }
     };
 
-    const handleChatSelect = (chat) => {
+    const handleChatSelect = async (chat) => {
         setSelectedChat(chat);
+        // Fetch messages for the selected chat
+        // const chatMessages = await fetchMessagesForChat(chat.id);
+        // setMessages(chatMessages);
     };
-
-    // mock data
-    const groupChats = [
-        {id: 1, user: 'HR Announcement', lastMessage: 'New policy update', timestamp: '10:22 AM', isGroup: true},
-        {id: 2, user: 'Design Team', lastMessage: "Good morning! Let's have our...", timestamp: '10:17 AM', isGroup: true},
-        {id: 3, user: 'Dev Team', lastMessage: 'Sprint planning at 2 PM', timestamp: '9:45 AM', isGroup: true},
-    ];
-
-    const pinnedChats = [
-        {id: 4, user: 'Project X', lastMessage: 'Deadline extended to Friday', timestamp: 'Yesterday'},
-        {id: 5, user: 'Alice (Manager)', lastMessage: 'Great job on the presentation!', timestamp: '2d ago'},
-    ];
-
-    const allChats = [
-        {id: 6, user: 'Chukuemeka', lastMessage: "Good Morning ma'am", timestamp: '10:20 AM'},
-        {id: 7, user: 'Aishat Doe', lastMessage: "Sure, I'll get them to you on time", timestamp: '10:14 AM'},
-        {id: 8, user: 'Edward', lastMessage: 'Hi, how are you today?', timestamp: '10:07 AM'},
-        {id: 9, user: 'Olumide', lastMessage: 'Can we schedule a quick call?', timestamp: '9:55 AM'},
-        {id: 10, user: 'Omowunmi', lastMessage: 'Thanks for your help!', timestamp: '9:30 AM'},
-        {id: 11, user: 'Jide', lastMessage: "I have sent the report to your email", timestamp: '8:45 AM'},
-    ];
 
     const CategoryBox = ({title, chats, onChatSelect, isOpen, onToggle, icon}) => (
         <Box borderWidth="1px" borderRadius="md" mb={4} bg="white" overflow="hidden">
@@ -233,6 +204,21 @@ const Messages = () => {
         <ChakraProvider theme={messagesTheme} resetCSS={false}>
             <Box className="messages-component" h="100vh" w="100%">
                 <Flex h="full" flexDirection="column">
+                    {/* New top search bar */}
+                    <Flex p={4} borderBottom="1px" borderColor="gray.200" alignItems="center">
+                        <InputGroup size="md" maxWidth="800px" mx="auto">
+                            <InputLeftElement pointerEvents="none">
+                                <SearchIcon color="gray.400" />
+                            </InputLeftElement>
+                            <Input
+                                placeholder="Search for users and job listings"
+                                value={topSearchQuery}
+                                onChange={(e) => setTopSearchQuery(e.target.value)}
+                            />
+                        </InputGroup>
+                        <Text ml="auto" fontSize="sm">{new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</Text>
+                    </Flex>
+
                     {/* Top Navigation */}
                     <Flex justify="space-between" align="center" p={4} borderBottom="1px" borderColor="gray.200">
                         <Text fontWeight="bold" fontSize="xl">Messages</Text>
@@ -283,7 +269,7 @@ const Messages = () => {
                         </HStack>
                     </Flex>
 
-                         {/*messages header*/}
+                    {/*messages header*/}
                     <Box p={4} borderBottom="1px" borderColor="gray.200">
                         <Text fontWeight="bold" fontSize="2xl" mb={2}>Messages</Text>
                         <Breadcrumb separator="•" fontSize="sm" color="gray.500">
@@ -337,7 +323,6 @@ const Messages = () => {
 
                     {/* Main Content */}
                     <Flex flex={1} overflow="hidden">
-                        {/* Left sidebar */}
                         <Box w="300px" bg="white" borderRight="1px" borderColor="gray.200" overflowY="auto">
                             <VStack align="stretch" spacing={0} p={4}>
                                 <CategoryBox
@@ -367,7 +352,6 @@ const Messages = () => {
                             </VStack>
                         </Box>
 
-                        {/* Right content area */}
                         <Flex flex={1} flexDirection="column" bg="white">
                             {selectedChat ? (
                                 <>
@@ -504,4 +488,5 @@ const Messages = () => {
         </ChakraProvider>
     );
 };
+
 export default Messages;
