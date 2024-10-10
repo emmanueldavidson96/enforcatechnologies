@@ -10,9 +10,11 @@ import {ChakraProvider, Box, Flex, VStack, HStack, Input, IconButton, Text, Avat
     BreadcrumbLink,
 } from '@chakra-ui/react';
 import {SearchIcon, BellIcon, ChevronDownIcon, ChevronRightIcon, CheckIcon,} from '@chakra-ui/icons';
-import { FiSend, FiSmile, FiMoreVertical, FiClock, FiPaperclip, FiHash, FiStar, FiMessageSquare, FiBookmark, FiShare2 } from 'react-icons/fi';
+import { FiSend, FiSmile, FiMoreVertical, FiClock, FiPaperclip, FiHash, FiStar, FiMessageSquare, FiBookmark, FiShare2, FiFilter } from 'react-icons/fi';
 import { BsPinAngle } from 'react-icons/bs';
 import { MdKeyboardVoice } from 'react-icons/md';
+
+
 // Custom theme for Messages component
 const messagesTheme = extendTheme({
     styles: {
@@ -203,8 +205,6 @@ const Messages = () => {
         <ChakraProvider theme={messagesTheme} resetCSS={false}>
             <Box className="messages-component" h="100vh" w="100%">
                 <Flex h="full" flexDirection="column">
-
-                    {/* Modified Top Navigation */}
                     <Flex justify="space-between" align="center" p={4} borderBottom="1px" borderColor="gray.200">
                         <InputGroup size="md" flex={1} mr={4}>
                             <InputLeftElement pointerEvents="none">
@@ -271,50 +271,47 @@ const Messages = () => {
                                 <BreadcrumbLink href="#">Dashboard</BreadcrumbLink>
                             </BreadcrumbItem>
                             <BreadcrumbItem isCurrentPage>
-                                <BreadcrumbLink href="#">Messages</BreadcrumbLink>
+                                <BreadcrumbLink  href="#"  color="blue.500">Messages</BreadcrumbLink>
                             </BreadcrumbItem>
                         </Breadcrumb>
                     </Box>
 
                     {/* Integrated search bar with filter and status */}
-                    <Flex p={4} bg="white" borderBottom="1px" borderColor="gray.200">
-                        <InputGroup size="md">
+                    <Flex p={4} bg="white" borderBottom="1px" borderColor="gray.200" alignItems="center">
+                        <InputGroup size="md" maxWidth="300px" mr={4}>
                             <InputLeftElement pointerEvents="none">
                                 <SearchIcon color="gray.400" />
                             </InputLeftElement>
                             <Input
-                                placeholder="Search by name, group chat..."
+                                placeholder="Search by name, group chat, team..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                pr="14rem"
+                                borderRadius="full"
                             />
-                            <InputRightElement width="14rem">
-                                <HStack spacing={2}>
-                                    <Menu>
-                                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} variant="ghost" size="sm">
-                                            Filter
-                                        </MenuButton>
-                                        <MenuList>
-                                            <MenuItem onClick={() => setFilter('All')}>All</MenuItem>
-                                            <MenuItem onClick={() => setFilter('Unread')}>Unread</MenuItem>
-                                            <MenuItem onClick={() => setFilter('Mentions')}>Mentions</MenuItem>
-                                        </MenuList>
-                                    </Menu>
-                                    <Menu>
-                                        <MenuButton as={Button} rightIcon={<ChevronDownIcon />} variant="ghost" size="sm">
-                                            All Status
-                                        </MenuButton>
-                                        <MenuList>
-                                            <MenuItem onClick={() => setStatus('All Status')}>All Status</MenuItem>
-                                            <MenuItem onClick={() => setStatus('Online')}>Online</MenuItem>
-                                            <MenuItem onClick={() => setStatus('Offline')}>Offline</MenuItem>
-                                        </MenuList>
-                                    </Menu>
-                                </HStack>
+                            <InputRightElement>
+                                <Icon as={ChevronDownIcon} color="gray.400" />
                             </InputRightElement>
                         </InputGroup>
+                        <Button
+                            leftIcon={<Icon as={FiFilter} />}
+                            rightIcon={<ChevronDownIcon />}
+                            variant="outline"
+                            mr={4}
+                            borderRadius="md"
+                        >
+                            Filter
+                        </Button>
+                        <Menu>
+                            <MenuButton as={Button} rightIcon={<ChevronDownIcon />} variant="outline" borderRadius="md">
+                                All Status
+                            </MenuButton>
+                            <MenuList>
+                                <MenuItem onClick={() => setStatus('All Status')}>All Status</MenuItem>
+                                <MenuItem onClick={() => setStatus('Online')}>Online</MenuItem>
+                                <MenuItem onClick={() => setStatus('Offline')}>Offline</MenuItem>
+                            </MenuList>
+                        </Menu>
                     </Flex>
-
                     {/* Main Content */}
                     <Flex flex={1} overflow="hidden">
                         <Box w="300px" bg="white" borderRight="1px" borderColor="gray.200" overflowY="auto">
@@ -333,7 +330,7 @@ const Messages = () => {
                                     onChatSelect={handleChatSelect}
                                     isOpen={openCategories.pinned}
                                     onToggle={() => toggleCategory('pinned')}
-                                    icon={FiStar}
+                                    icon={BsPinAngle}
                                 />
                                 <CategoryBox
                                     title="All Messages"
@@ -345,7 +342,6 @@ const Messages = () => {
                                 />
                             </VStack>
                         </Box>
-
                         <Flex flex={1} flexDirection="column" bg="white">
                             {selectedChat ? (
                                 <>
