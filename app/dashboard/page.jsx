@@ -73,7 +73,7 @@ export default function Dashboard() {
             } rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
           >
             <CiHome
-              color='inherit'
+              color={`${activeTab === "home" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -97,7 +97,7 @@ export default function Dashboard() {
             }`}
           >
             <GiGraduateCap
-              color={activeTab === 'talentmanagement' ? 'blue' : 'inherit'}
+              color={`${activeTab === "talentmanagement" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -121,7 +121,7 @@ export default function Dashboard() {
             } flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
           >
             <PiSuitcaseSimple
-              color='inherit'
+              color={`${activeTab === "job" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -145,7 +145,7 @@ export default function Dashboard() {
             } flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
           >
             <MdOutlineEmail
-              color='inherit'
+              color={`${activeTab === "message" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -169,7 +169,7 @@ export default function Dashboard() {
             } flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
           >
             <SlCalender
-              color='inherit'
+              color={`${activeTab === "calender" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -194,7 +194,7 @@ export default function Dashboard() {
             } flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
           >
             <FaRegMoneyBill1
-              color='inherit'
+              color={`${activeTab === "subscriptions" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -218,7 +218,7 @@ export default function Dashboard() {
             } flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]`}
           >
             <IoSettingsOutline
-              color='inherit'
+              color={`${activeTab === "settings" ? "#4153B2" : "inherit"}`}
               size={25}
               className='hover:text-[#4153B2]'
             />
@@ -239,7 +239,7 @@ export default function Dashboard() {
         {/* Logout */}
         <div className='flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]'>
           <SlLogout
-            color='inherit'
+            color={`${activeTab === "logout" ? "#4153B2" : "inherit"}`}
             size={25}
             className='hover:text-[#4153B2]'
           />
