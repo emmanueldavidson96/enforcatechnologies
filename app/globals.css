@@ -19,3 +19,9 @@
     text-wrap: balance;
   }
 }
+
+.btn-group .btn-1 {
+  border-right: 1px solid gray;
+  padding-right:  5px;
+}
+
