@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect, useRef } from 'react';
 import {ChakraProvider, Box, Flex, VStack, HStack, Input, IconButton, Text, Avatar, Button, extendTheme, InputGroup, InputRightElement, InputLeftElement, Icon, Menu, MenuButton, MenuList, MenuItem, Popover, PopoverTrigger, PopoverContent, PopoverHeader,
     PopoverBody,

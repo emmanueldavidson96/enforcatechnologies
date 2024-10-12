@@ -99,18 +99,19 @@ const Calendar = () => {
                                 color="#3B4BF9"
                             />
                         </HStack>
-                        <Select
-                            placeholder="View Month"
-                            maxW="150px"
+                        <Box
                             borderRadius="full"
                             borderColor="#3B4BF9"
                             color="#3B4BF9"
-                            _hover={{ borderColor: "#2A3AD6" }}
-                            icon={<ChevronDownIcon color="#3B4BF9" />}
+                            borderWidth={1}
+                            px={4}
+                            py={2}
+                            display="flex"
+                            alignItems="center"
                         >
-                            <option value="week">View Week</option>
-                            <option value="day">View Day</option>
-                        </Select>
+                            <Text mr={2}>View Month</Text>
+                            <ChevronDownIcon color="#3B4BF9" />
+                        </Box>
                     </Flex>
                     <Box flex={1} overflowY="auto" w="100%">
                         <Grid templateColumns="repeat(7, 1fr)" gap={0} w="100%" borderWidth={1} borderColor="gray.200">
@@ -119,7 +120,7 @@ const Calendar = () => {
                                     {day}
                                 </Box>
                             ))}
-                            {[...Array(35)].map((_, index) => (
+                            {[...Array(31)].map((_, index) => (
                                 <Popover
                                     key={index}
                                     isOpen={selectedDay === index}
