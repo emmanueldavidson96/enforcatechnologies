@@ -1,0 +1,216 @@
+[1mdiff --git a/.idea/workspace.xml b/.idea/workspace.xml[m
+[1mindex 4420677..4a91fc9 100644[m
+[1m--- a/.idea/workspace.xml[m
+[1m+++ b/.idea/workspace.xml[m
+[36m@@ -6,6 +6,7 @@[m
+   <component name="ChangeListManager">[m
+     <list default="true" id="0f5a14ff-4d08-4309-84c3-bb997fc359a7" name="Changes" comment="">[m
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />[m
+[32m+[m[32m      <change beforePath="$PROJECT_DIR$/app/_components/Calender.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/Calender.jsx" afterDir="false" />[m
+       <change beforePath="$PROJECT_DIR$/app/_components/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_components/Messages.jsx" afterDir="false" />[m
+     </list>[m
+     <option name="SHOW_DIALOG" value="false" />[m
+[36m@@ -64,7 +65,10 @@[m
+       <workItem from="1728199616718" duration="599000" />[m
+       <workItem from="1728278055750" duration="80000" />[m
+       <workItem from="1728478940793" duration="7665000" />[m
+[31m-      <workItem from="1728537385539" duration="6057000" />[m
+[32m+[m[32m      <workItem from="1728537385539" duration="6380000" />[m
+[32m+[m[32m      <workItem from="1728577025631" duration="3066000" />[m
+[32m+[m[32m      <workItem from="1728623587315" duration="5665000" />[m
+[32m+[m[32m      <workItem from="1728710858867" duration="1674000" />[m
+     </task>[m
+     <servers />[m
+   </component>[m
+[1mdiff --git a/app/_components/Calender.jsx b/app/_components/Calender.jsx[m
+[1mindex b8b82d3..a76e55d 100644[m
+[1m--- a/app/_components/Calender.jsx[m
+[1m+++ b/app/_components/Calender.jsx[m
+[36m@@ -1,7 +1,164 @@[m
+[31m-import React from 'react'[m
+[32m+[m[32mimport React, { useState } from 'react';[m
+[32m+[m[32mimport { ChakraProvider, Box, Grid, Heading, Text, VStack, HStack, Button, Input, Flex, Select, IconButton, Popover, PopoverTrigger, PopoverContent, PopoverBody, PopoverCloseButton, PopoverHeader } from '@chakra-ui/react';[m
+[32m+[m[32mimport { ChevronLeftIcon, ChevronRightIcon, ChevronDownIcon, SearchIcon, AddIcon, BellIcon } from '@chakra-ui/icons';[m
+ [m
+[31m-export default function Calender() {[m
+[31m-  return ([m
+[31m-    <div>Calender</div>[m
+[31m-  )[m
+[32m+[m[32mconst daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];[m
+[32m+[m
+[32m+[m[32mconst Calendar = () => {[m
+[32m+[m[32m    const [selectedDay, setSelectedDay] = useState(null);[m
+[32m+[m[32m    const [isAddInterviewOpen, setIsAddInterviewOpen] = useState(false);[m
+[32m+[m
+[32m+[m[32m    const handleDayClick = (day) => {[m
+[32m+[m[32m        setSelectedDay(day);[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    const toggleAddInterview = () => {[m
+[32m+[m[32m        setIsAddInterviewOpen(!isAddInterviewOpen);[m
+[32m+[m[32m    };[m
+[32m+[m
+[32m+[m[32m    return ([m
+[32m+[m[32m        <ChakraProvider resetCSS={false}>[m
+[32m+[m[32m            <Box minH="100vh" w="100vw" bg="white" overflowX="hidden">[m
+[32m+[m[32m                <VStack spacing={4} align="stretch" h="100%" p={4}>[m
+[32m+[m[32m                    <Flex justify="space-between" align="center" w="100%">[m
+[32m+[m[32m                        <Input[m
+[32m+[m[32m                            placeholder="Search for users and job listings"[m
+[32m+[m[32m                            maxW="600px"[m
+[32m+[m[32m                            w="100%"[m
+[32m+[m[32m                            leftIcon={<SearchIcon color="gray.300" />}[m
+[32m+[m[32m                        />[m
+[32m+[m[32m                        <HStack>[m
+[32m+[m[32m                            <Text fontSize="sm" color="gray.500">[m
+[32m+[m[32m                                {new Date().toLocaleString('en-US', {[m
+[32m+[m[32m                                    month: 'long',[m
+[32m+[m[32m                                    day: 'numeric',[m
+[32m+[m[32m                                    year: 'numeric',[m
+[32m+[m[32m                                    hour: 'numeric',[m
+[32m+[m[32m                                    minute: 'numeric',[m
+[32m+[m[32m                                    second: 'numeric',[m
+[32m+[m[32m                                    hour12: true,[m
+[32m+[m[32m                                })}[m
+[32m+[m[32m                            </Text>[m
+[32m+[m[32m                            <IconButton[m
+[32m+[m[32m                                aria-label="Notifications"[m
+[32m+[m[32m                                icon={<BellIcon />}[m
+[32m+[m[32m                                variant="ghost"[m
+[32m+[m[32m                                colorScheme="gray"[m
+[32m+[m[32m                            />[m
+[32m+[m[32m                        </HStack>[m
+[32m+[m[32m                    </Flex>[m
+[32m+[m[32m                    <Flex justify="space-between" align="center" w="100%">[m
+[32m+[m[32m                        <Heading as="h2" size="lg" color="#000080">[m
+[32m+[m[32m                            My Schedule[m
+[32m+[m[32m                        </Heading>[m
+[32m+[m[32m                        <Popover[m
+[32m+[m[32m                            isOpen={isAddInterviewOpen}[m
+[32m+[m[32m                            onClose={() => setIsAddInterviewOpen(false)}[m
+[32m+[m[32m                            placement="bottom-end"[m
+[32m+[m[32m                        >[m
+[32m+[m[32m                            <PopoverTrigger>[m
+[32m+[m[32m                                <Button[m
+[32m+[m[32m                                    leftIcon={<AddIcon />}[m
+[32m+[m[32m                                    bg="#3B4BF9"[m
+[32m+[m[32m                                    color="white"[m
+[32m+[m[32m                                    _hover={{ bg: '#2A3AD6' }}[m
+[32m+[m[32m                                    onClick={toggleAddInterview}[m
+[32m+[m[32m                                    borderRadius="full"[m
+[32m+[m[32m                                    px={6}[m
+[32m+[m[32m                                    fontWeight="normal"[m
+[32m+[m[32m                                >[m
+[32m+[m[32m                                    Add Interview[m
+[32m+[m[32m                                </Button>[m
+[32m+[m[32m                            </PopoverTrigger>[m
+[32m+[m[32m                            <PopoverContent p={0} borderRadius="md" boxShadow="lg">[m
+[32m+[m[32m                                <PopoverHeader fontWeight="bold" borderBottomWidth={1} p={4}>[m
+[32m+[m[32m                                    Add Interview[m
+[32m+[m[32m                                </PopoverHeader>[m
+[32m+[m[32m                                <PopoverCloseButton />[m
+[32m+[m[32m                                <PopoverBody p={4}>[m
+[32m+[m[32m                                    <Text>Add Interview form will be implemented here.</Text>[m
+[32m+[m[32m                                </PopoverBody>[m
+[32m+[m[32m                            </PopoverContent>[m
+[32m+[m[32m                        </Popover>[m
+[32m+[m[32m                    </Flex>[m
+[32m+[m[32m                    <Flex justify="space-between" align="center" w="100%">[m
+[32m+[m[32m                        <HStack>[m
+[32m+[m[32m                            <IconButton[m
+[32m+[m[32m                                aria-label="Previous month"[m
+[32m+[m[32m                                icon={<ChevronLeftIcon />}[m
+[32m+[m[32m                                variant="ghost"[m
+[32m+[m[32m                                color="#3B4BF9"[m
+[32m+[m[32m                            />[m
+[32m+[m[32m                            <Text fontSize="xl" fontWeight="bold" color="#3B4BF9">[m
+[32m+[m[32m                                August 2026[m
+[32m+[m[32m                            </Text>[m
+[32m+[m[32m                            <IconButton[m
+[32m+[m[32m                                aria-label="Next month"[m
+[32m+[m[32m                                icon={<ChevronRightIcon />}[m
+[32m+[m[32m                                variant="ghost"[m
+[32m+[m[32m                                color="#3B4BF9"[m
+[32m+[m[32m                            />[m
+[32m+[m[32m                        </HStack>[m
+[32m+[m[32m                        <Select[m
+[32m+[m[32m                            placeholder="View Month"[m
+[32m+[m[32m                            maxW="150px"[m
+[32m+[m[32m                            borderRadius="full"[m
+[32m+[m[32m                            borderColor="#3B4BF9"[m
+[32m+[m[32m                            color="#3B4BF9"[m
+[32m+[m[32m                            _hover={{ borderColor: "#2A3AD6" }}[m
+[32m+[m[32m                            icon={<ChevronDownIcon color="#3B4BF9" />}[m
+[32m+[m[32m                        >[m
+[32m+[m[32m                            <option value="week">View Week</option>[m
+[32m+[m[32m                            <option value="day">View Day</option>[m
+[32m+[m[32m                        </Select>[m
+[32m+[m[32m                    </Flex>[m
+[32m+[m[32m                    <Box flex={1} overflowY="auto" w="100%">[m
+[32m+[m[32m                        <Grid templateColumns="repeat(7, 1fr)" gap={0} w="100%" borderWidth={1} borderColor="gray.200">[m
+[32m+[m[32m                            {daysOfWeek.map((day) => ([m
+[32m+[m[32m                                <Box key={day} textAlign="center" fontWeight="bold" p={2} borderBottomWidth={1} borderRightWidth={1} borderColor="gray.200">[m
+[32m+[m[32m                                    {day}[m
+[32m+[m[32m                                </Box>[m
+[32m+[m[32m                            ))}[m
+[32m+[m[32m                            {[...Array(35)].map((_, index) => ([m
+[32m+[m[32m                                <Popover[m
+[32m+[m[32m                                    key={index}[m
+[32m+[m[32m                                    isOpen={selectedDay === index}[m
+[32m+[m[32m                                    onClose={() => setSelectedDay(null)}[m
+[32m+[m[32m                                >[m
+[32m+[m[32m                                    <PopoverTrigger>[m
+[32m+[m[32m                                        <Box[m
+[32m+[m[32m                                            onClick={() => handleDayClick(index)}[m
+[32m+[m[32m                                            textAlign="left"[m
+[32m+[m[32m                                            p={2}[m
+[32m+[m[32m                                            borderBottomWidth={1}[m
+[32m+[m[32m                                            borderRightWidth={1}[m
+[32m+[m[32m                                            borderColor="gray.200"[m
+[32m+[m[32m                                            position="relative"[m
+[32m+[m[32m                                            height="120px"[m
+[32m+[m[32m                                            cursor="pointer"[m
+[32m+[m[32m                                        >[m
+[32m+[m[32m                                            <Text fontSize="sm" color={index < 3 ? "gray.400" : "black"}>[m
+[32m+[m[32m                                                {index < 3 ? `JULY ${29 + index}` : index - 2}[m
+[32m+[m[32m                                            </Text>[m
+[32m+[m[32m                                        </Box>[m
+[32m+[m[32m                                    </PopoverTrigger>[m
+[32m+[m[32m                                    <PopoverContent borderRadius="md" boxShadow="lg">[m
+[32m+[m[32m                                        <PopoverHeader fontWeight="bold" borderBottomWidth={1} p={4}>[m
+[32m+[m[32m                                            Event Details[m
+[32m+[m[32m                                        </PopoverHeader>[m
+[32m+[m[32m                                        <PopoverCloseButton />[m
+[32m+[m[32m                                        <PopoverBody p={4}>[m
+[32m+[m[32m                                            <Text>Event details will be loaded here.</Text>[m
+[32m+[m[32m                                        </PopoverBody>[m
+[32m+[m[32m                                    </PopoverContent>[m
+[32m+[m[32m                                </Popover>[m
+[32m+[m[32m                            ))}[m
+[32m+[m[32m                        </Grid>[m
+[32m+[m[32m                    </Box>[m
+[32m+[m[32m                </VStack>[m
+[32m+[m[32m            </Box>[m
+[32m+[m[32m        </ChakraProvider>[m
+[32m+[m[32m    );[m
+ }[m
+[32m+[m
+[32m+[m[32mexport default Calendar;[m
+\ No newline at end of file[m
+[1mdiff --git a/app/_components/Messages.jsx b/app/_components/Messages.jsx[m
+[1mindex 0495069..23bc9c2 100644[m
+[1m--- a/app/_components/Messages.jsx[m
+[1m+++ b/app/_components/Messages.jsx[m
+[36m@@ -217,7 +217,11 @@[m [mconst Messages = () => {[m
+                             />[m
+                         </InputGroup>[m
+                         <HStack spacing={4}>[m
+[31m-                            <Text fontSize="sm">{new Date().toLocaleString()}</Text>[m
+[32m+[m[32m                            <Text fontSize="sm">[m
+[32m+[m[32m                                {new Date().toLocaleString('en-US', {year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit',[m
+[32m+[m[32m                                    hour12: true[m
+[32m+[m[32m                                })}[m
+[32m+[m[32m                            </Text>[m
+                             <Popover[m
+                                 isOpen={showNotifications}[m
+                                 onClose={() => setShowNotifications(false)}[m
