@@ -7,13 +7,46 @@ import Link from 'next/link';
 import profileImage from '../_assets/Ellipse 388.jpg';
 import { TbEdit } from 'react-icons/tb';
 import edit from '../_assets/edit.png';
+import plus from '../_assets/Plus.png';
+import minus from '../_assets/Minus.png';
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState('profile');
+  const [revealedFAQ, setRevealedFAQ] = useState(null);
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
   };
+
+  function toggleIsRevealed(faqId) {
+    setRevealedFAQ(revealedFAQ === faqId ? null : faqId);
+  }
+
+  const faqs = [
+    {
+      id: 1,
+      question: 'What is Mentor Techies?',
+      answer:
+        'We are a community of tech talents that assist in mentoring and job assistance. Our aim is to get people to do decent jobs under sustainable goals.',
+    },
+    {
+      id: 2,
+      question: 'How can I join Mentor Techies?',
+      answer: 'You can join Mentor Techies by applying through our website.',
+    },
+    {
+      id: 3,
+      question: 'What services does Mentor Techies offer?',
+      answer:
+        'We offer a variety of services including mentorship, job placements, and tech skills development.',
+    },
+    {
+      id: 4,
+      question: 'What services does Mentor Techies offer?',
+      answer:
+        'We offer a variety of services including mentorship, job placements, and tech skills development.',
+    }
+  ];
 
   return (
     <>
@@ -331,8 +364,38 @@ export default function Settings() {
             )}
             {activeTab === 'faqs' && (
               <div>
-                <h2 className='text-xl font-semibold'>Profile Settings</h2>
-                <p>Here you can update your profile information.</p>
+                <h2 className='text-xl font-semibold text-[#3042ab]'>FAQs</h2>
+                <div className='p-3 bg-[#fcfcfd] rounded-md flex flex-col gap-2 mt-6'>
+                  {faqs.map((faq) => (
+                    <div key={faq.id}>
+                      <div className='flex justify-between items-center  border-2 border-[#3042ab] rounded-md p-3'>
+                        <p>{faq.question}</p>
+                        <div>
+                          {revealedFAQ === faq.id ? (
+                            <Image
+                              src={minus}
+                              alt='Close dropdown'
+                              role='button'
+                              onClick={() => toggleIsRevealed(faq.id)}
+                            />
+                          ) : (
+                            <Image
+                              src={plus}
+                              alt='Close dropdown'
+                              role='button'
+                              onClick={() => toggleIsRevealed(faq.id)}
+                            />
+                          )}
+                        </div>
+                      </div>
+                      {revealedFAQ === faq.id && (
+                        <div className='bg-white border-2 border-gray-300 rounded-lg p-4 pr-5 mt-5 mb-4'>
+                          <p className='text-[#3042ab] text-sm'>{faq.answer}</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
               </div>
             )}
           </div>
