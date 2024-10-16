@@ -17,7 +17,6 @@ import Calender from '../_components/Calender';
 import Subscriptions from '../_components/Subscriptions';
 import Settings from '../_components/Settings';
 
-
 export default function Dashboard() {
   const [activeTab, set_activeTab] = useState('home');
   const [open, set_open] = useState(true);
@@ -80,9 +79,7 @@ export default function Dashboard() {
             {open && (
               <p
                 className={`${
-                  activeTab === 'home'
-                    ? 'text-blue-500'
-                    : 'text-inherit'
+                  activeTab === 'home' ? 'text-blue-500' : 'text-inherit'
                 } text-sm font-medium tracking-wider`}
               >
                 Home
@@ -128,9 +125,7 @@ export default function Dashboard() {
             {open && (
               <p
                 className={`${
-                  activeTab === 'job'
-                    ? 'text-blue-500'
-                    : 'text-inherit'
+                  activeTab === 'job' ? 'text-blue-500' : 'text-inherit'
                 } text-sm font-medium tracking-wider`}
               >
                 Job
@@ -152,9 +147,7 @@ export default function Dashboard() {
             {open && (
               <p
                 className={`${
-                  activeTab === 'message'
-                    ? 'text-blue-500'
-                    : 'text-inherit'
+                  activeTab === 'message' ? 'text-blue-500' : 'text-inherit'
                 } text-sm font-medium tracking-wider`}
               >
                 Message
@@ -176,9 +169,7 @@ export default function Dashboard() {
             {open && (
               <p
                 className={`${
-                  activeTab === 'calender'
-                    ? 'text-blue-500'
-                    : 'text-inherit'
+                  activeTab === 'calender' ? 'text-blue-500' : 'text-inherit'
                 } text-sm font-medium tracking-wider`}
               >
                 Calender
@@ -225,9 +216,7 @@ export default function Dashboard() {
             {open && (
               <p
                 className={`${
-                  activeTab === 'settings'
-                    ? 'text-blue-500'
-                    : 'text-inherit'
+                  activeTab === 'settings' ? 'text-blue-500' : 'text-inherit'
                 } text-sm font-medium tracking-wider`}
               >
                 Settings
@@ -246,9 +235,7 @@ export default function Dashboard() {
           {open && (
             <p
               className={`${
-                activeTab === 'logout'
-                  ? 'text-blue-500'
-                  : 'text-inherit'
+                activeTab === 'logout' ? 'text-blue-500' : 'text-inherit'
               } text-sm font-medium tracking-wider`}
             >
               Logout

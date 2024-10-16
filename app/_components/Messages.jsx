@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useState, useEffect, useRef } from 'react';
 import {ChakraProvider, Box, Flex, VStack, HStack, Input, IconButton, Text, Avatar, Button, extendTheme, InputGroup, InputRightElement, InputLeftElement, Icon, Menu, MenuButton, MenuList, MenuItem, Popover, PopoverTrigger, PopoverContent, PopoverHeader,
     PopoverBody,
@@ -217,7 +215,11 @@ const Messages = () => {
                             />
                         </InputGroup>
                         <HStack spacing={4}>
-                            <Text fontSize="sm">{new Date().toLocaleString()}</Text>
+                            <Text fontSize="sm">
+                                {new Date().toLocaleString('en-US', {year: 'numeric', month: 'long', day: '2-digit', hour: '2-digit', minute: '2-digit',
+                                    hour12: true
+                                })}
+                            </Text>
                             <Popover
                                 isOpen={showNotifications}
                                 onClose={() => setShowNotifications(false)}

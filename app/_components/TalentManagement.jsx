@@ -32,7 +32,7 @@ export default function TalentManagement() {
               className='w-full h-full bg-white border p-3 pl-10' // extra padding for icons
               type='text'
             />
-            {/* Search Icon */}
+            {/* Search Icon */} 
             <Image
               src={search}
               alt='search icon'
