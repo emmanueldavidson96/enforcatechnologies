@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { HiOutlineBriefcase } from "react-icons/hi";
 
 export default function HomeTab() {
+    
   return (
     <div className='w-full h-full px-10 py-6 bg-[#F5F6FB] overflow-y-scroll'>
           {/* Search Box With Header */}
@@ -253,9 +254,7 @@ export default function HomeTab() {
                 </div>
               </div>
             </div>
-
-          </div>
-          
+          </div>          
         </div>
 
   )
