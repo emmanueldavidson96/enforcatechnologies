@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import React from 'react'
+import Image from 'next/image';
+import React from 'react';
 import logoImage from "../_assets/Screenshot 2024-09-26 083619.png";
 import logo from "../_assets/Screenshot 2024-09-26 083944.png";
 import Link from 'next/link';
