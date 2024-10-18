@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IoChevronBackCircleOutline } from 'react-icons/io5';
 import { CiHome } from 'react-icons/ci';
 import { GiGraduateCap } from 'react-icons/gi';
@@ -26,6 +26,26 @@ export default function Dashboard() {
     set_open(!open);
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+  const checkScreenSize = () => {
+    if(window.innerWidth <= 1260){
+      setIsMobile(true)
+      set_open(!open)
+    }
+    else{
+      setIsMobile(false)
+      set_open(true)
+    }
+  }
+
+  useEffect(() => {
+    checkScreenSize()
+    window.addEventListener("resize", checkScreenSize)
+    return () => {
+      window.removeEventListener("resize", checkScreenSize)
+    }
+  } , [])
+
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
@@ -50,8 +70,8 @@ export default function Dashboard() {
     <div className='w-full h-screen flex bg-white overflow-hidden'>
       <div
         className={`${
-          open ? 'w-[20%]' : 'w-[5%]'
-        } h-full flex flex-col gap-2 bg-[#4153B2] py-8 items-center justify-between`}
+          open ? 'w-[20%]' : 'w-[5%] max-lg:w-[13%]'
+        } h-full flex flex-col gap-2 bg-[#4153B2] py-8 items-center justify-between duration-300 transition-all`}
       >
         <div className='h-full flex flex-col gap-3 w-full items-center'>
           <div className='relative p-6 w-full'>
@@ -61,7 +81,7 @@ export default function Dashboard() {
               size={25}
               className={`${
                 open ? '' : 'rotate-180'
-              } absolute right-[30px] top-1 cursor-pointer`}
+              } absolute transition-all duration-300 right-[30px] top-1 cursor-pointer`}
             />
           </div>
           <hr className='w-full' />

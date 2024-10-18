@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 export default function ResetPassword() {
   return (
-    <div className="w-full h-screen flex bg-white overflow-hidden">
-      <div className='w-[40%] h-full flex justify-center items-center bg-[#FAFAFA] relative overflow-hidden'>
+    <div className="w-full h-screen max-lg:h-fit flex max-lg:flex-col bg-white overflow-hidden">
+      <div className='w-[40%] max-lg:w-full h-full max-lg:h-[600px] flex justify-center items-center bg-[#FAFAFA] relative overflow-hidden'>
         <Image src={logoImage} alt='Logo Image' width={250} height={100}/>
         <div className='w-[600px] h-[600px] bg-[#4153B2] rounded-full absolute left-[-380px] bottom-[-250px] opacity-80 z-50'>
         </div>
@@ -16,10 +16,10 @@ export default function ResetPassword() {
         <div className='w-[300px] h-[300px] bg-[#FFFFFF] opacity-40 rounded-full bottom-[-100px] right-[200px] z-30 absolute'>
         </div>
       </div>
-      <div className='w-[60%] h-full flex gap-6 justify-center flex-col bg-white pl-12'>
-        <h1 className='font-semibold text-3xl'>Reset Password</h1>
-        <p>Please tupe in a new password to continue</p>
-        <form className='flex flex-col gap-2 w-[60%]'>
+      <div className='w-[60%] max-lg:w-full h-full max-lg:h-[600px] flex gap-6 justify-center flex-col bg-white pl-12 max-lg:p-6'>
+        <h1 className='font-semibold text-3xl tracking-widest'>Reset Password</h1>
+        <p className='tracking-wider'>Please tupe in a new password to continue</p>
+        <form className='flex flex-col gap-2 w-[60%] max-lg:w-full'>
           <label htmlFor="email" className='text-sm font-bold tracking-wide'>New Password <span className='text-red-500'>*</span></label>
           <input type='email' placeholder='Enter your email address' className='p-3 border rounded-md text-sm'/>          
           <label htmlFor="email" className='text-sm font-bold tracking-wide'>Confirm Password <span className='text-red-500'>*</span></label>
