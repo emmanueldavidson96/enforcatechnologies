@@ -84,12 +84,12 @@ export default function Job() {
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">
-                  <span className="px-2 py-1 bg-blue-400 text-black rounded-md flex items-center w-28">
+                  <span className="px-2 py-1 bg-customBlue text-black rounded-md flex items-center w-28">
                     <PiArrowBendUpLeftBold className='mr-2' />
                     <p>CREATED</p>
                   </span>
                 </td>
-                <td className="bg-blue-600 text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
+                <td className="bg-customDeepBlue text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -107,12 +107,12 @@ export default function Job() {
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">
-                  <span className="px-2 py-1 bg-blue-400 text-black rounded-md flex items-center w-28">
+                  <span className="px-2 py-1 bg-customBlue text-black rounded-md flex items-center w-28">
                     <PiArrowBendUpLeftBold className='mr-2' />
                     <p>CREATED</p>
                   </span>
                 </td>
-                <td className="bg-blue-600 text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
+                <td className="bg-customDeepBlue text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -130,12 +130,12 @@ export default function Job() {
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">
-                  <span className="px-2 py-1 bg-blue-400 text-black rounded-md flex items-center w-28">
+                  <span className="px-2 py-1 bg-customBlue text-black rounded-md flex items-center w-28">
                     <PiArrowBendUpLeftBold className='mr-2' />
                     <p>CREATED</p>
                   </span>
                 </td>
-                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-blue-600 text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
+                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-customDeepBlue text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -158,7 +158,7 @@ export default function Job() {
                     <p>ACTIVE</p>
                   </span>
                 </td>
-                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-blue-600 text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
+                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-customDeepBlue text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -181,7 +181,7 @@ export default function Job() {
                     <p>ACTIVE</p>
                   </span>
                 </td>
-                <td className="bg-blue-600 text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
+                <td className="bg-customDeepBlue text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -204,7 +204,7 @@ export default function Job() {
                     <p>ACTIVE</p>
                   </span>
                 </td>
-                <td className="text-white rounded-lg flex w-fit" disabled><button className='className="bg-blue-600 text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
+                <td className="text-white rounded-lg flex w-fit" disabled><button className='className="bg-customDeepBlue text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -227,7 +227,7 @@ export default function Job() {
                     <p>EXPIRED</p>
                   </span>
                 </td>
-                <td className="bg-blue-600 text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
+                <td className="bg-customDeepBlue text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -250,7 +250,7 @@ export default function Job() {
                     <p>EXPIRED</p>
                   </span>
                 </td>
-                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-blue-600 text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
+                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-customDeepBlue text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -268,12 +268,12 @@ export default function Job() {
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">N/A</td>
                 <td className="px-4 py-4">
-                  <span className="px-2 py-1 bg-blue-400 text-black rounded-md flex items-center w-28">
+                  <span className="px-2 py-1 bg-customBlue text-black rounded-md flex items-center w-28">
                     <PiArrowBendUpLeftBold className='mr-2' />
                     <p>CREATED</p>
                   </span>
                 </td>
-                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-blue-600 text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
+                <td className=" text-white rounded-lg flex w-fit" disabled><button className='className="bg-customDeepBlue text-white rounded-lg p-2 disabled:bg-blue-400 disabled:cursor-not-allowed' disabled>Activate</button></td>
               </tr>
 
               <tr className="border-t">
@@ -297,7 +297,7 @@ export default function Job() {
                   </span>
 
                 </td>
-                <td className="bg-blue-600 text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
+                <td className="bg-customDeepBlue text-white rounded-lg p-2 flex w-fit"><button>Activate</button></td>
               </tr>
             </tbody>
           </table>

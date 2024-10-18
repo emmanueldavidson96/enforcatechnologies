@@ -13,6 +13,8 @@ module.exports = {
         foreground: "var(--foreground)",
         customRed: 'rgb(254, 72, 72)',
         customPink: 'rgb(255,224,224)',
+        customBlue: 'rgb(156,179,215)',
+        customDeepBlue: 'rgb(65,83,178)',
       },
       width: {
         customW: '70%',
