@@ -12,7 +12,7 @@ import { HiOutlineBriefcase } from "react-icons/hi";
 export default function HomeTab() {
     
   return (
-    <div className='w-full h-full px-10 py-6 bg-[#F5F6FB] overflow-y-scroll'>
+    <div className='w-full h-full px-10 max-lg:px-4 py-6 bg-[#F5F6FB] overflow-y-scroll'>
           {/* Search Box With Header */}
 
           <div className='w-full h-[50px] items-center flex gap-4 '>
@@ -23,8 +23,8 @@ export default function HomeTab() {
 
           {/* Overview Section */}
 
-          <div className='flex mt-4 justify-between'>
-            <div className='flex flex-col gap-3 w-[65%]'>
+          <div className='flex max-lg:flex-col mt-4 justify-between'>
+            <div className='flex flex-col gap-3 w-[65%] max-lg:w-full'>
               <h2 className='font-semibold text-4xl text-[#111D63]'>Overview</h2>
               <div className='flex justify-between'>
                 
@@ -64,7 +64,7 @@ export default function HomeTab() {
 
             {/* Todays Tasks */}
 
-            <div className='flex flex-col gap-3 w-[30%] p-4 bg-white rounded-md'>
+            <div className='flex flex-col gap-3 w-[30%] max-lg:w-full p-4 bg-white rounded-md'>
               
               <div className='w-full h-fit flex justify-between '>
                 <h2 className='font-medium text-sm text-[#111D63] '>Today's Tasks</h2>
@@ -94,48 +94,33 @@ export default function HomeTab() {
 
         {/* Job Ready Talents Section */}
 
-          <div className='flex justify-between w-full mt-6 h-fit'>
+          <div className='flex max-lg:flex-col justify-between w-full mt-6 h-fit'>
             
-            <div className='flex flex-col gap-8 w-[65%] bg-white p-6 rounded-xl '>
+            <div className='flex flex-col gap-8 w-[65%] max-lg:w-full bg-white p-6 max-lg:p-3 rounded-xl '>
               <div className='flex w-full justify-between rounded-md'>
                 <p className='text-xl font-semibold text-[#111D63]'>Job Ready Talents</p>
                 <div className='flex items-center gap-2'>
                   <FaCirclePlus color='#111D63' size={20}/>
-                  <p className='text-lg font-medium'>Add Job Talent</p>
+                  <p className='text-lg max-lg:text-base font-medium'>Add Job Talent</p>
                 </div>
               </div>
               <div className='w-full h-fit'>
                 <div className='flex justify-between '>
-                  <h2 className='text-lg font-medium text-[#3B53DD]'>Name</h2>
-                  <h2 className='text-lg font-medium text-[#3B53DD]'>Expertise</h2>
+                  <h2 className='text-lg max-lg:text-base font-medium text-[#3B53DD]'>Name</h2>
+                  <h2 className='text-lg max-lg:text-base font-medium text-[#3B53DD]'>Expertise</h2>
                   <p></p>                 
                 </div>
                 <div className='flex justify-between mt-4'>
                   <div className='flex gap-2 items-center'>
                     <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>John Doe</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>John Doe</h2>
                   </div>
                   <div className='flex items-center justify-center'>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>Product Designer</h2>
-                  </div>
-                  <div className='flex items-center justify-center'>
-                    <Link href={"/"}>
-                      <p className='text-lg underline p-3 text-[#111D63]'>View Profile</p>                    
-                    </Link>
-                  </div>
-                </div>
-
-                <div className='flex justify-between  mt-4'>
-                  <div className='flex gap-2 items-center'>
-                    <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>John Doe</h2>
-                  </div>
-                  <div className='flex items-center justify-center'>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>Product Designer</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>Product Designer</h2>
                   </div>
                   <div className='flex items-center justify-center'>
                     <Link href={"/"}>
-                      <p className='text-lg underline p-3 text-[#111D63]'>View Profile</p>                    
+                      <p className='text-lg max-lg:text-xs underline p-3 text-[#111D63]'>View Profile</p>                    
                     </Link>
                   </div>
                 </div>
@@ -143,14 +128,31 @@ export default function HomeTab() {
                 <div className='flex justify-between mt-4'>
                   <div className='flex gap-2 items-center'>
                     <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>John Doe</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>John Doe</h2>
                   </div>
                   <div className='flex items-center justify-center'>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>Product Designer</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>Product Designer</h2>
                   </div>
                   <div className='flex items-center justify-center'>
                     <Link href={"/"}>
-                      <p className='text-lg underline p-3 text-[#111D63]'>View Profile</p>                    
+                      <p className='text-lg max-lg:text-xs underline p-3 text-[#111D63]'>View Profile</p>                    
+                    </Link>
+                  </div>
+                </div>
+
+                
+
+                <div className='flex justify-between mt-4'>
+                  <div className='flex gap-2 items-center'>
+                    <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>John Doe</h2>
+                  </div>
+                  <div className='flex items-center justify-center'>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>Product Designer</h2>
+                  </div>
+                  <div className='flex items-center justify-center'>
+                    <Link href={"/"}>
+                      <p className='text-lg max-lg:text-xs underline p-3 text-[#111D63]'>View Profile</p>                    
                     </Link>
                   </div>
                 </div>
@@ -158,14 +160,14 @@ export default function HomeTab() {
                 <div className='flex justify-between mt-4'>
                   <div className='flex gap-2 items-center'>
                     <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>John Doe</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>John Doe</h2>
                   </div>
                   <div className='flex items-center justify-center'>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>Product Designer</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>Product Designer</h2>
                   </div>
                   <div className='flex items-center justify-center'>
                     <Link href={"/"}>
-                      <p className='text-lg underline p-3 text-[#111D63]'>View Profile</p>                    
+                      <p className='text-lg max-lg:text-xs underline p-3 text-[#111D63]'>View Profile</p>                    
                     </Link>
                   </div>
                 </div>
@@ -173,14 +175,14 @@ export default function HomeTab() {
                 <div className='flex justify-between mt-4'>
                   <div className='flex gap-2 items-center'>
                     <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>John Doe</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>John Doe</h2>
                   </div>
                   <div className='flex items-center justify-center'>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>Product Designer</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>Product Designer</h2>
                   </div>
                   <div className='flex items-center justify-center'>
                     <Link href={"/"}>
-                      <p className='text-lg underline p-3 text-[#111D63]'>View Profile</p>                    
+                      <p className='text-lg max-lg:text-xs underline p-3 text-[#111D63]'>View Profile</p>                    
                     </Link>
                   </div>
                 </div>
@@ -188,21 +190,21 @@ export default function HomeTab() {
                 <div className='flex justify-between mt-4'>
                   <div className='flex gap-2 items-center'>
                     <Image src={profileImage} alt='Profile Image of User' className='w-[50px] h-[50px] rounded-full '/>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>John Doe</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>John Doe</h2>
                   </div>
                   <div className='flex items-center justify-center'>
-                    <h2 className='text-xl font-semibold text-[#111D63]'>Product Designer</h2>
+                    <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>Product Designer</h2>
                   </div>
                   <div className='flex items-center justify-center'>
                     <Link href={"/"}>
-                      <p className='text-lg underline p-3 text-[#111D63]'>View Profile</p>                    
+                      <p className='text-lg max-lg:text-xs underline p-3 text-[#111D63]'>View Profile</p>                    
                     </Link>
                   </div>
                 </div>
               </div>
 
             </div>
-            <div className='flex flex-col gap-4 w-[30%] bg-white rounded-xl p-6'>
+            <div className='flex flex-col gap-4 w-[30%] max-lg:w-full bg-white rounded-xl p-6'>
               <h2 className='text-xl font-semibold text-[#111D63]'>Recent Actvities</h2>
               <div className='w-full flex items-center gap-4 bg-[#F1F4F8] rounded-xl p-4'>
                 <div className='h-[40px] w-[40px] rounded-full bg-[#111D63] flex items-center justify-center'>
