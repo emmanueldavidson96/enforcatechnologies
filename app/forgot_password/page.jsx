@@ -12,7 +12,7 @@ export default function ForgotPassword() {
         <Image src={logoImage} alt='Logo Image' width={250} height={100}/>
         <div className='w-[600px] h-[600px] bg-[#4153B2] rounded-full absolute left-[-380px] bottom-[-250px] opacity-80 z-50'>
         </div>
-        <div className='w-[400px] h-[400px] bg-[#9CB3D7] opacity-80 absolute rounded-full right-[-150px] bottom-[-150px] z-10'>
+        <div className='w-[400px] h-[400px] bg-[rgb(156,179,215)] opacity-80 absolute rounded-full right-[-150px] bottom-[-150px] z-10'>
         </div>
         <div className='w-[300px] h-[300px] bg-[#FFFFFF] opacity-40 rounded-full bottom-[-100px] right-[200px] z-30 absolute'>
         </div>
