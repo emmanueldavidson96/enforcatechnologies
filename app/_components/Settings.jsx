@@ -168,7 +168,7 @@ export default function Settings() {
                             First name
                           </label>
                           <input
-                            className='w-full rounded-md'
+                            className='w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -176,7 +176,7 @@ export default function Settings() {
                         </form>
                         <form className='mt-6 w-[50%]' action=''>
                           <input
-                            className='px-3 w-full rounded-md'
+                            className='px-3 w-full rounded-md p-3'
                             placeholder='default'
                             type='text'
                             name=''
@@ -190,7 +190,7 @@ export default function Settings() {
                             First name
                           </label>
                           <input
-                            className='w-full rounded-md'
+                            className='w-full rounded-md p-3' 
                             type='text'
                             name=''
                             id=''
@@ -198,7 +198,7 @@ export default function Settings() {
                         </form>
                         <form className='mt-6 w-[50%]' action=''>
                           <input
-                            className='px-3 w-full rounded-md'
+                            className='px-3 w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -211,7 +211,7 @@ export default function Settings() {
                             First name
                           </label>
                           <input
-                            className='w-full rounded-md'
+                            className='w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -219,7 +219,7 @@ export default function Settings() {
                         </form>
                         <form className='mt-6 w-[50%]' action=''>
                           <input
-                            className='px-3 w-full rounded-md'
+                            className='px-3 w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -232,7 +232,7 @@ export default function Settings() {
                             First name
                           </label>
                           <input
-                            className='w-full rounded-md'
+                            className='w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -240,7 +240,7 @@ export default function Settings() {
                         </form>
                         <form className='mt-6 w-[50%]' action=''>
                           <input
-                            className='px-3 w-full rounded-md'
+                            className='px-3 w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -253,7 +253,7 @@ export default function Settings() {
                             First name
                           </label>
                           <input
-                            className='w-full rounded-md'
+                            className='w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -261,7 +261,7 @@ export default function Settings() {
                         </form>
                         <form className='mt-6 w-[50%]' action=''>
                           <input
-                            className='px-3 w-full rounded-md'
+                            className='px-3 w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -274,7 +274,7 @@ export default function Settings() {
                             First name
                           </label>
                           <input
-                            className='w-full rounded-md'
+                            className='w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''
@@ -282,7 +282,7 @@ export default function Settings() {
                         </form>
                         <form className='mt-6 w-[50%]' action=''>
                           <input
-                            className='px-3 w-full rounded-md'
+                            className='px-3 w-full rounded-md p-3'
                             type='text'
                             name=''
                             id=''

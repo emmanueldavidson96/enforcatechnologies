@@ -16,8 +16,10 @@ import Messages from '../_components/Messages';
 import Calender from '../_components/Calender';
 import Subscriptions from '../_components/Subscriptions';
 import Settings from '../_components/Settings';
+import { useRouter } from 'next/navigation';
 
 export default function Dashboard() {
+  const router = useRouter();
   const [activeTab, set_activeTab] = useState('home');
   const [open, set_open] = useState(true);
   // const [color, setColor] = useState('white');
@@ -246,7 +248,7 @@ export default function Dashboard() {
         </div>
 
         {/* Logout */}
-        <div className='flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]'>
+        <div onClick={() => router.push("/login") } className='flex gap-4 items-center w-[80%] text-white hover:bg-white rounded-lg p-3 cursor-pointer hover:text-[#4153B2]'>
           <SlLogout
             color={`${activeTab === "logout" ? "#4153B2" : "inherit"}`}
             size={25}

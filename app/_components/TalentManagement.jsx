@@ -23,13 +23,12 @@ import thirdRectangle from '../_assets/third Rectangle.png';
 
 export default function TalentManagement() {
   return (
-    <>
-      <div className='w-full h-full px-10 py-6 bg-[#F5F6FB] overflow-y-scroll'>
-        <div className='w-full h-[50px] items-center flex gap-4 '>
-          <div className='relative w-[80%]'>
+      <div className='w-full h-full px-10 flex-col flex gap-10 max-lg:px-2 py-6 bg-[#F5F6FB] overflow-y-scroll'>
+        <div className='w-full h-[50px] items-center flex max-lg:flex-col gap-4 max-lg:gap-2 max-lg:items-end '>
+          <div className='relative w-[80%] max-lg:w-full'>
             <input
               placeholder='Search for users and job listings'
-              className='w-full h-full bg-white border p-3 pl-10' // extra padding for icons
+              className='w-full p-4' // extra padding for icons
               type='text'
             />
             {/* Search Icon */} 
@@ -45,46 +44,46 @@ export default function TalentManagement() {
               className='absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer border-l-2 px-1'
             />
           </div>
-          <p className='text-black text-sm tracking-wider font-medium'>
+          <p className='text-black flex gap-2 items-center text-sm tracking-wider font-medium max-lg:text-xs'>
             August 05, 2024 12:15PM
+            <IoNotifications className='cursor-pointer' color='black' size={25} />
           </p>
-          <IoNotifications className='cursor-pointer' color='black' size={25} />
         </div>
-        <div className='flex mt-4 justify-center gap-5'>
-          <div className='flex flex-col gap-3 w-[65%]'>
+        
+        {/* Header Worker */}
+        <div className='flex max-lg:flex-col mt-4 justify-center gap-5'>
+          <div className='flex flex-col gap-3 w-[65%] max-lg:w-full'>
             <div className='flex justify-between items-center'>
-              <div className='flex gap-2 items-center'>
+              <div className='flex gap-2 max-lg:gap-1 items-center'>
                 <Image
                   src={profileImage}
                   alt='Profile Image of User'
-                  className='w-[50px] h-[50px] rounded-full '
+                  className='w-[50px] h-[50px] rounded-full'
                 />
-                <div>
-                  <h2 className='text-xl font-semibold text-[#111D63]'>
+                <div className='flex flex-col'>
+                  <h2 className='text-xl max-lg:text-sm font-semibold text-[#111D63]'>
                     John Doe
                   </h2>
-                  <p className='text-[#475466]'>Product Designer</p>
+                  <p className='text-[#475466] max-lg:text-xs'>Product Designer</p>
                 </div>
               </div>
               <div className='flex items-center gap-3'>
-                <div>
-                  <button className='bg-[#4153B2] text-white p-2 rounded-l-lg'>
-                    Update CV
-                  </button>
-                </div>
+                <button className='bg-[#4153B2] text-white p-2 w-fit rounded-l-lg max-lg:text-xs'>
+                  Update CV
+                </button>
                 <div className='btn-group flex items-center bg-white rounded gap-2 p-3'>
                   <button>
-                    <Image className='cursor-pointer btn-1 w-6' src={edit} alt='edit' />
+                    <Image className='cursor-pointer btn-1 w-6 max-lg:w-5' src={edit} alt='edit' />
                   </button>
                   <button>
-                    <Image className='cursor-pointer btn-1 w-6' src={share} alt='share' />
+                    <Image className='cursor-pointer btn-1 w-6 max-lg:w-5' src={share} alt='share' />
                   </button>
                   <button>
-                    <Image className='cursor-pointer btn-1 w-6' src={print} alt='print' />
+                    <Image className='cursor-pointer btn-1 w-6 max-lg:w-5' src={print} alt='print' />
                   </button>
                   <button>
                     <Image
-                      className='cursor-pointer pe-1 w-6'
+                      className='cursor-pointer pe-1 w-6 max-lg:w-5'
                       src={download}
                       alt='download'
                     />
@@ -92,8 +91,12 @@ export default function TalentManagement() {
                 </div>
               </div>
             </div>
-            <div className='flex justify-between'>
-              <div className='w-[23%] bg-white rounded-md p-4 gap-2 flex flex-col'>
+
+            {/* Top Tabs */}
+
+            <div className='flex justify-between w-full h-fit'>
+              
+              <div className='w-[23%] max-lg:w-full bg-white rounded-md p-4 gap-2 flex flex-col'>
                 <div className='w-[50px] h-[50px] rounded-full bg-[#111D63] flex flex-col items-center justify-center gap-1'>
                   <Image
                     src={employee}
@@ -111,9 +114,9 @@ export default function TalentManagement() {
                 <p className='text-xl font-extrabold text-[#111D63] pt-1 ps-1'>
                   75
                 </p>
-              </div>
+              </div>              
 
-              <div className='w-[23%] bg-white rounded-md p-4 gap-1 flex flex-col'>
+              <div className='w-[23%] max-lg:w-[43%] bg-white rounded-md p-4 gap-1 flex flex-col'>
                 <div className='w-[50px] h-[50px] rounded-full bg-[#111D63] flex items-center justify-center'>
                   <Image
                     src={employee}
@@ -133,7 +136,7 @@ export default function TalentManagement() {
                 </p>
               </div>
 
-              <div className='w-[23%] bg-white rounded-md p-4 gap-4 flex flex-col items-start justify-center'>
+              <div className='w-[23%] max-lg:w-[43%] bg-white rounded-md p-4 gap-4 flex flex-col items-start justify-center'>
                 <div className='w-[50px] h-[50px] rounded-full bg-[#111D63] flex items-center justify-center'>
                   <Image
                     src={employee}
@@ -147,7 +150,7 @@ export default function TalentManagement() {
                 <p className='text-xl font-extrabold text-[#111D63] ps-1'>20</p>
               </div>
 
-              <div className='w-[23%] bg-[#ffffff] rounded-md p-4 gap-1 flex flex-col'>
+              <div className='w-[23%] max-lg:w-[43%] bg-[#ffffff] rounded-md p-4 gap-1 flex flex-col'>
                 <div className='w-[50px] h-[50px] rounded-full bg-[#111D63] flex items-center justify-center'>
                   <Image
                     src={briefCase}
@@ -168,6 +171,7 @@ export default function TalentManagement() {
               </div>
             </div>
 
+            {/* Job Ready Talents */}
             <div className='flex flex-col gap-8 bg-white p-6 rounded-xl '>
               <div className='flex justify-between rounded-md'>
                 <p className='text-xl font-semibold text-[#111D63]'>
@@ -295,6 +299,9 @@ export default function TalentManagement() {
               </div>
             </div>
           </div>
+
+          {/* Job Readiness Index */}
+
           <div className='flex flex-col gap-3 w-[35%] mt-2'>
             <div className='flex flex-col justify-center items-center bg-white rounded-xl gap-3 p-4'>
               <p className='text-[#111D63] text-lg font-semibold'>
@@ -316,6 +323,7 @@ export default function TalentManagement() {
                 </div>
               </div>
             </div>
+
             <div className='flex flex-col gap-3 bg-white rounded-xl p-7'>
               <h2 className='text-[#111D63] drop-shadow-lg text-xl'>
                 Activity history
@@ -333,8 +341,11 @@ export default function TalentManagement() {
               </p>
               <hr />
             </div>
+
           </div>
         </div>
+
+
         <div className='flex flex-col gap-6 justify-center bg-white rounded-lg mt-4 p-6'>
           <h2 className='text-xl text-[#111D63] font-bold'>
             Job ready talents
@@ -382,6 +393,5 @@ export default function TalentManagement() {
           </div>
         </div>
       </div>
-    </>
   );
 }
