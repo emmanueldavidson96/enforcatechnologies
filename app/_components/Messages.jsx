@@ -8,12 +8,12 @@ import {ChakraProvider, Box, Flex, VStack, HStack, Input, IconButton, Text, Avat
     BreadcrumbLink,
 } from '@chakra-ui/react';
 import {SearchIcon, BellIcon, ChevronDownIcon, ChevronRightIcon, CheckIcon,} from '@chakra-ui/icons';
-import { FiSend, FiSmile, FiMoreVertical, FiClock, FiPaperclip, FiHash, FiStar, FiMessageSquare, FiBookmark, FiShare2, FiFilter } from 'react-icons/fi';
+import { FiSend, FiSmile, FiMoreVertical, FiClock, FiPaperclip, FiHash, FiMessageSquare, FiBookmark, FiShare2, FiFilter } from 'react-icons/fi';
 import { BsPinAngle } from 'react-icons/bs';
 import { MdKeyboardVoice } from 'react-icons/md';
 
 
-// Custom theme for Messages component
+// Custom theme configuration for consistent styling
 const messagesTheme = extendTheme({
     styles: {
         global: {
@@ -37,60 +37,74 @@ const messagesTheme = extendTheme({
 });
 
 const Messages = () => {
+    // State for notifications and UI controls
     const [notifications, setNotifications] = useState([]);
     const [showNotifications, setShowNotifications] = useState(false);
     const [selectedChat, setSelectedChat] = useState(null);
+
+    // State for sidebar category visibility
     const [openCategories, setOpenCategories] = useState({
         group: true,
         pinned: true,
         all: true,
     });
+
+    // Message handling states
     const [inputMessage, setInputMessage] = useState('');
     const [messages, setMessages] = useState([]);
+
+    // Search and filter states
     const [searchQuery, setSearchQuery] = useState('');
     const [filter, setFilter] = useState('All');
     const [status, setStatus] = useState('All Status');
+
+    // Reference for chat auto-scroll
     const chatBoxRef = useRef(null);
 
+    // Chat lists states
     const [groupChats, setGroupChats] = useState([]);
     const [pinnedChats, setPinnedChats] = useState([]);
     const [allChats, setAllChats] = useState([]);
     const [topSearchQuery, setTopSearchQuery] = useState('');
 
+    // Initial data loading
     useEffect(() => {
-        //  API endpoints
         fetchNotifications();
         fetchGroupChats();
         fetchPinnedChats();
         fetchAllChats();
     }, []);
 
+    // Auto-scroll chat when new messages arrive
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
 
+    // API fetch functions (to be implemented)
     const fetchNotifications = async () => {
-
+        // TODO: Implement notification fetching
     };
 
     const fetchGroupChats = async () => {
-
+        // TODO: Implement group chats fetching
     };
 
     const fetchPinnedChats = async () => {
-
+        // TODO: Implement pinned chats fetching
     };
 
     const fetchAllChats = async () => {
-
+        // TODO: Implement all chats fetching
     };
 
+    // Scroll chat to bottom
     const scrollToBottom = () => {
         if (chatBoxRef.current) {
             chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
         }
     };
 
+    // Toggle category expansion in sidebar
     const toggleCategory = (category) => {
         setOpenCategories((prev) => ({
             ...prev,
@@ -98,39 +112,44 @@ const Messages = () => {
         }));
     };
 
+    // Handle message input changes
     const handleInputChange = (e) => {
         setInputMessage(e.target.value);
     };
 
+    // Handle sending new messages
     const handleSendMessage = async () => {
         if (inputMessage.trim()) {
+            // Create new message object
             const newMessage = {
                 id: messages.length + 1,
                 text: inputMessage,
                 sender: 'me',
-                timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                timestamp: new Date().toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })
             };
+
+            // Add message to state and clear input
             setMessages([...messages, newMessage]);
             setInputMessage('');
 
-            // Send message to API
+            // TODO: Implement API integration
             // await sendMessageToAPI(newMessage);
-
-            // Simulate receiving a response ( actual API call)
-            // setTimeout(() => {
-            //     const response = await fetchResponseFromAPI();
-            //     setMessages(prevMessages => [...prevMessages, response]);
-            // }, 2000);
+            // await fetchResponseFromAPI();
         }
     };
 
+    // Handle chat selection
     const handleChatSelect = async (chat) => {
         setSelectedChat(chat);
-        // Fetch messages for the selected chat
+        // TODO: Implement chat message fetching
         // const chatMessages = await fetchMessagesForChat(chat.id);
         // setMessages(chatMessages);
     };
 
+    // Reusable category box component for sidebar
     const CategoryBox = ({title, chats, onChatSelect, isOpen, onToggle, icon}) => (
         <Box borderWidth="1px" borderRadius="md" mb={4} bg="white" overflow="hidden">
             <Button
